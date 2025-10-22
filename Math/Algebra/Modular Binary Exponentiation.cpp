@@ -13,7 +13,7 @@ ll mod_exponent(ll x, ll y, ll M)
 }
 
 // Looping
-ll mod_exponent_loop(ll x, ll y, ll M)
+ll mod_exponent(ll x, ll y, ll M)
 {
     ll result = 1ll;
     while (y)
