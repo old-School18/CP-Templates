@@ -1,6 +1,12 @@
 // Time Complexity: O(log y)
 // (x^y) % M
 
+ll mod(ll a, ll M)
+{
+    ll absoluteM = abs(M);
+    return (a % absoluteM + absoluteM) % absoluteM;
+}
+
 // Recursive
 ll mod_exponent(ll x, ll y, ll M)
 {
