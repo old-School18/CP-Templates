@@ -1,5 +1,5 @@
 // Time Complexity: O(log(min(a,b)))
-// gcd(a,b)
+// gcd(a,b) with coefficients of a & b
 
 ll mod(ll a, ll M)
 {
@@ -39,7 +39,6 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
 }
 
 -------------------------------------------------------------------------
-
 
 Derivation for Looping Algorithm:
 
