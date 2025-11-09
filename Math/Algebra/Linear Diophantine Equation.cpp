@@ -46,6 +46,8 @@ bool find_any_solution(ll a, ll b, ll c, ll &x, ll &y)
     return true;
 }
 
+-------------------------------------------------------------
+
 Derivation:
 
 ax+by=c
