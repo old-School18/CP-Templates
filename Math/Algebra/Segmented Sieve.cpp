@@ -1,5 +1,5 @@
-// Time Complexity: O(n)
-// Determine prime numbers from 1 to n if n is large.
+// Time Complexity: O(n log log n)
+// Determine prime numbers from 1 to n for large n.
 
 void sieve(ll n, vector<ll> &prime)
 {
