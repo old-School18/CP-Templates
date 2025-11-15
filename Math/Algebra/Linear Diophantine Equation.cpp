@@ -1,4 +1,5 @@
-// Time Complexity: O(log(min(a,b)))
+// Time Complexity => O(log(min(a,b)))
+// Memory Complexity => O(log(min(a,b)))
 // Any one (x,y) that satisfy ax+by=c
 
 ll mod(ll a, ll M)
