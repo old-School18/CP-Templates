@@ -1,6 +1,6 @@
 // Time Complexity => O(1)
 // Memory Complexity => O(1)
-// Resultant value has the same sign as the divisor i.e., a
+// Resultant value has the same sign as the divisor i.e., M
 
 ll mod_mathematical(ll a, ll M)
 {
