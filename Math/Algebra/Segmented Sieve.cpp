@@ -37,9 +37,9 @@ void segmented_sieve(ll n, vector<ll> &all_primes)
     vector<ll> base_primes;
     sieve(limit, base_primes);
     all_primes = base_primes;
-    ll lo = limit, hi = 2ll * limit;
+    ll lo = limit + 1, hi = 2ll * limit;
 
-    while (lo < n)
+    while (lo <= n)
     {
         if (hi >= n)
             hi = n;
