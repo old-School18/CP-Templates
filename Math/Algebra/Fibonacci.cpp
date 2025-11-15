@@ -1,4 +1,5 @@
-// Time Complexity: O(log n)
+// Time Complexity => O(log n)
+// Memory Complexity => Recurisve: O(log n) | Iterative: O(1)
 // Fibonnaci numbers computation
 
 struct matrix
@@ -23,6 +24,35 @@ struct matrix
     }
 };
 
+// Recursive
+matrix fibonacci_recursive(matrix ans, matrix base, ll n)
+{
+    if (n == 0)
+    {
+        return ans;
+    }
+
+    if (n & 1)
+    {
+        return fibonacci_recursive(ans * base, base * base, n / 2);
+    }
+    else
+    {
+        return fibonacci_recursive(ans, base * base, n / 2);
+    }
+}
+
+ll fibonacci(ll n)
+{
+    matrix base{{{1, 1}, {1, 0}}};
+    matrix ans{{{1, 0}, {0, 1}}};
+    ans = fibonacci_recursive(ans, base, n);
+    return ans.mat[0][1];
+}
+
+----------------------------
+
+// Iterative
 ll fibonacci(ll n)
 {
     matrix base{{{1, 1}, {1, 0}}};
