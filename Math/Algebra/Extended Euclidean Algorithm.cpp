@@ -1,4 +1,5 @@
-// Time Complexity: O(log(min(a,b)))
+// Time Complexity => O(log(min(a,b)))
+// Memory Complexity => Recursive: O(log(min(a,b))) | Iterative: O(1)
 // gcd(a,b) with coefficients of a & b
 
 ll mod(ll a, ll M)
@@ -20,7 +21,9 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
     return g;
 }
 
-// Looping
+--------------------------------
+    
+// Iterative
 ll extended_euclid(ll a, ll b, ll &x, ll &y)
 {
     ll ca1 = 1, ca2 = 0;
