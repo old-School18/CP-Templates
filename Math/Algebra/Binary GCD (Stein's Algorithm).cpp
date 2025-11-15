@@ -1,4 +1,5 @@
-// Time Complexity: O(log(min(a,b)))
+// Time Complexity => O(log(min(a,b)))
+// Memory Complexity => Recursive: O(log(min(a,b,))) | Iterative: O(1)
 // Faster than Euclidean as shift operations are cheaper than modulo
 // gcd(a,b)
 
@@ -25,6 +26,8 @@ ll gcd(ll a, ll b)
     return gcd_recursive(a, b) << common_even_divisor;
 }
 
+------------------------------------
+    
 // Looping
 ll gcd(ll a, ll b)
 {
