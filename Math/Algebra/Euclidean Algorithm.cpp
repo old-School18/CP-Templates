@@ -1,4 +1,5 @@
-// Time Complexity: O(log(min(a,b)))
+// Time Complexity => O(log(min(a,b)))
+// Memory Complexity => Recursive: O(log(min(a,b))) | Iterative: O(1)
 // gcd(a,b)
 
 ll mod(ll a, ll M)
@@ -15,7 +16,9 @@ ll gcd(ll a, ll b)
     return gcd(b, mod(a, b));
 }
 
-// Looping
+-------------------------------------
+
+// Iterative
 ll gcd(ll a, ll b)
 {
     while (b)
