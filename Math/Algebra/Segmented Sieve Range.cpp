@@ -1,4 +1,5 @@
-// Time Complexity: O(n log log R) where n = R-L+1
+// Time Complexity => O(n log log R) where n = R-L+1
+// Memory Complexity => O(n + sqrt(R))
 // Determine prime numbers in [L,R]
 
 void sieve(ll n, vector<ll> &prime)
@@ -16,7 +17,10 @@ void sieve(ll n, vector<ll> &prime)
         }
     }
 
-    prime.push_back(2);
+    if (n >= 2)
+    {
+        prime.push_back(2);
+    }
     for (ll i = 3; i <= n; i += 2)
     {
         if (is_prime[i])
@@ -29,23 +33,36 @@ void sieve(ll n, vector<ll> &prime)
 
 void segmented_sieve_range(ll lo, ll hi, vector<ll> &primes_in_range)
 {
-    ll limit = floor(sqrt(hi)) + 1;
-    vector<ll> prime;
-    sieve(limit, prime);
-    primes_in_range = prime;
-    bool is_prime[hi - lo + 1];
-    memset(is_prime, true, sizeof(is_prime));
+    ll limit = floor(sqrt((long double) hi)) + 1;
+    vector<ll> base_primes;
+    sieve(limit, base_primes);
+    vector<bool> is_prime(hi - lo + 1, 1);
 
-    for (ll i = 0; i < (ll) prime.size(); i++)
+    // handle 0 and 1 explicitly
+    if (lo == 0)
     {
-        ll lo_lim = floor(lo / prime[i]) * prime[i];
-        if (lo_lim < lo)
-            lo_lim += prime[i];
-        for (ll j = lo_lim; j <= hi; j += prime[i])
-            is_prime[j - lo] = false;
+        is_prime[0] = 0; // 0 not prime
+        if (hi >= 1)
+            is_prime[1] = 0; // 1 not prime
+    }
+    else if (lo == 1)
+    {
+        is_prime[0] = 0; // 1 not prime
+    }
+
+    for (ll p : base_primes)
+    {
+        // start from the first multiple of p >= lo
+        ll start = (lo + p - 1) / p * p;
+        if (start < p * p)
+            start = p * p;
+        for (ll j = start; j <= hi; j += p)
+        {
+            is_prime[j - lo] = 0;
+        }
     }
     for (ll i = lo; i <= hi; i++)
-        if (i - lo > 1 && is_prime[i - lo] == true)
+        if (i > 1 && is_prime[i - lo] == true)
             primes_in_range.push_back(i);
     return;
 }
