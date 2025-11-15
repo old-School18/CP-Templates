@@ -1,4 +1,5 @@
-// Time Complexity: O(log y)
+// Time Complexity => O(log y)
+// Memory Complexity => Recursive: O(log y) | Iterative: O(1)
 // (x^y) % M
 
 ll mod(ll a, ll M)
@@ -18,7 +19,9 @@ ll mod_exponent(ll x, ll y, ll M)
         return mod(x * mod_exponent(mod(x * x, M), y / 2ll, M), M);
 }
 
-// Looping
+------------------------
+    
+// Iterative
 ll mod_exponent(ll x, ll y, ll M)
 {
     ll result = 1ll;
