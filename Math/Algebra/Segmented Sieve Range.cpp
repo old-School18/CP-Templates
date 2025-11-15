@@ -4,15 +4,15 @@
 
 void sieve(ll n, vector<ll> &prime)
 {
-    vector<bool> is_prime(n + 1, true);
-    is_prime[0] = is_prime[1] = false;
+    vector<char> is_prime(n + 1, 1);
+    is_prime[0] = is_prime[1] = 0;
     for (ll i = 2; i * i <= n; i++)
     {
         if (is_prime[i])
         {
             for (ll j = i * i; j <= n; j += i)
             {
-                is_prime[j] = false;
+                is_prime[j] = 0;
             }
         }
     }
@@ -36,7 +36,7 @@ void segmented_sieve_range(ll lo, ll hi, vector<ll> &primes_in_range)
     ll limit = floor(sqrt((long double) hi)) + 1;
     vector<ll> base_primes;
     sieve(limit, base_primes);
-    vector<bool> is_prime(hi - lo + 1, 1);
+    vector<char> is_prime(hi - lo + 1, 1);
 
     // handle 0 and 1 explicitly
     if (lo == 0)
@@ -62,7 +62,7 @@ void segmented_sieve_range(ll lo, ll hi, vector<ll> &primes_in_range)
         }
     }
     for (ll i = lo; i <= hi; i++)
-        if (i > 1 && is_prime[i - lo] == true)
+        if (i > 1 && is_prime[i - lo])
             primes_in_range.push_back(i);
     return;
 }
