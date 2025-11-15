@@ -1,4 +1,5 @@
-// Time Complexity: O(log y)
+// Time Complexity => O(log y)
+// Memory Complexity => Recursive: O(log y) | Iterative: O(1) 
 // x^y
 
 // Recursive
