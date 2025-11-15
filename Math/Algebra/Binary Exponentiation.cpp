@@ -15,7 +15,7 @@ ll exponent(ll x, ll y)
 
 ------------------------------------
 
-// Looping
+// Iterative
 ll exponent(ll x, ll y)
 {
     ll result = 1ll;
