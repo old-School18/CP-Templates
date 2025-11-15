@@ -1,7 +1,7 @@
 // Time Complexity => O(n)
 // Memory Complexity => O(n)
 // Determine prime numbers till n in linear time. 
-// Also determines lowest prime factor of all numbers till n
+// Also determines lowest prime factors of all numbers till n
 
 void linear_sieve(ll n, vector<ll> &primes)
 {
