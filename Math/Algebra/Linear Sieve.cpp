@@ -1,5 +1,5 @@
-// Time Complexity: O(n)
-// Memory Complexity: O(n)
+// Time Complexity => O(n)
+// Memory Complexity => O(n)
 // Determine prime numbers till n in linear time
 
 void linear_sieve(ll n, vector<ll> &primes)
