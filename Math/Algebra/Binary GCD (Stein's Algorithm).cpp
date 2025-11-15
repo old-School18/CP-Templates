@@ -28,7 +28,7 @@ ll gcd(ll a, ll b)
 
 ------------------------------------
     
-// Looping
+// Iterative
 ll gcd(ll a, ll b)
 {
     if (!a || !b)
