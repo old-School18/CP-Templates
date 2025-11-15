@@ -13,6 +13,8 @@ ll exponent(ll x, ll y)
         return (x * exponent(x * x, y / 2ll));
 }
 
+------------------------------------
+
 // Looping
 ll exponent(ll x, ll y)
 {
