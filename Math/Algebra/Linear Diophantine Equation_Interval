@@ -86,10 +86,10 @@ ll find_all_solutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
     }
     ll rx1 = x;
 
-    shift_diophantine_solution(x, y, a, b, (miny - y) / a);
+    shift_diophantine_solution(x, y, a, b, -(miny - y) / a);
     if (y < miny)
     {
-        shift_diophantine_solution(x, y, a, b, sign_a);
+        shift_diophantine_solution(x, y, a, b, -sign_a);
     }
     else if (y > maxy)
     {
@@ -97,10 +97,10 @@ ll find_all_solutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
     }
     ll lx2 = x;
 
-    shift_diophantine_solution(x, y, a, b, (maxy - y) / a);
+    shift_diophantine_solution(x, y, a, b, -(maxy - y) / a);
     if (y > maxy)
     {
-        shift_diophantine_solution(x, y, a, b, -sign_a);
+        shift_diophantine_solution(x, y, a, b, sign_a);
     }
     ll rx2 = x;
 
