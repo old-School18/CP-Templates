@@ -4,8 +4,7 @@
 
 ll mod(ll a, ll M)
 {
-    ll absoluteM = abs(M);
-    return (a % absoluteM + absoluteM) % absoluteM;
+    return a%M;
 }
 
 // Recursive
