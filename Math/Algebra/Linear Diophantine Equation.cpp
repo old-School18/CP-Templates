@@ -2,13 +2,6 @@
 // Memory Complexity => O(log(min(a,b)))
 // Any one (x,y) that satisfy ax+by=c
 
-ll mod(ll a, ll M)
-{
-    ll absoluteM = abs(M);
-
-    return (a % absoluteM + absoluteM) % absoluteM;
-}
-
 ll extended_euclid(ll a, ll b, ll &x, ll &y)
 {
     if (b == 0)
@@ -17,7 +10,7 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
         return a;
     }
 
-    ll g = extended_euclid(b, mod(a, b), x, y);
+    ll g = extended_euclid(b, a%b, x, y);
     tie(x, y) = make_tuple(y, x - (a / b) * y);
     return g;
 }
