@@ -2,18 +2,12 @@
 // Memory Complexity => Recursive: O(log(min(a,b))) | Iterative: O(1)
 // gcd(a,b)
 
-ll mod(ll a, ll M)
-{
-    ll absoluteM = abs(M);
-    return (a % absoluteM + absoluteM) % absoluteM;
-}
-
 // Recursive
 ll gcd(ll a, ll b)
 {
     if (b == 0)
         return a;
-    return gcd(b, mod(a, b));
+    return gcd(b, a%b);
 }
 
 -------------------------------------
@@ -23,7 +17,7 @@ ll gcd(ll a, ll b)
 {
     while (b)
     {
-        a = mod(a, b);
+        a = a%b;
         swap(a, b);
     }
     return a;
