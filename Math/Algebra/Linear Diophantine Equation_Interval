@@ -56,7 +56,7 @@ ll find_all_solutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
 {
     ll g, x, y;
     g = extended_euclid(abs(a), abs(b), x, y);
-    
+
     if (!find_any_solution(a, b, c, x, y, g))
     {
         return 0;
@@ -103,6 +103,11 @@ ll find_all_solutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
         shift_diophantine_solution(x, y, a, b, sign_a);
     }
     ll rx2 = x;
+
+    if (lx2 > rx2)
+    {
+        swap(lx2, rx2);
+    }
 
     ll lx = max(lx1, lx2);
     ll rx = min(rx1, rx2);
