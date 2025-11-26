@@ -2,12 +2,6 @@
 // Memory Complexity => Recursive: O(log(min(a,b))) | Iterative: O(1)
 // gcd(a,b) with coefficients of a & b
 
-ll mod(ll a, ll M)
-{
-    ll absoluteM = abs(M);
-    return (a % absoluteM + absoluteM) % absoluteM;
-}
-
 // Recursive
 ll extended_euclid(ll a, ll b, ll &x, ll &y)
 {
@@ -16,7 +10,7 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
         x = 1, y = 0;
         return a;
     }
-    ll g = extended_euclid(b, mod(a, b), x, y);
+    ll g = extended_euclid(b, a%b, x, y);
     tie(x, y) = make_tuple(y, x - (a / b) * y);
     return g;
 }
