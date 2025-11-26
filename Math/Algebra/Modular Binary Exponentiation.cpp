@@ -4,7 +4,7 @@
 
 ll mod(ll a, ll M)
 {
-    return a%M;
+    return a % M;
 }
 
 // Recursive
