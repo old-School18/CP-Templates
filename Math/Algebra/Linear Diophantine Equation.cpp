@@ -10,7 +10,7 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
         return a;
     }
 
-    ll g = extended_euclid(b, a%b, x, y);
+    ll g = extended_euclid(b, a % b, x, y);
     tie(x, y) = make_tuple(y, x - (a / b) * y);
     return g;
 }
