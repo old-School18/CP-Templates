@@ -9,7 +9,7 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
         x = 1, y = 0;
         return a;
     }
-    ll g = extended_euclid(b, a%b, x, y);
+    ll g = extended_euclid(b, a % b, x, y);
     tie(x, y) = make_tuple(y, x - (a / b) * y);
     return g;
 }
@@ -21,5 +21,5 @@ ll mod_inverse(ll a, ll M)
     if (g != 1) {
     	return -1; // No inverse
     }
-    return x%M;
+    return x %  M;
 }
