@@ -38,17 +38,13 @@ bool find_any_solution(ll a, ll b, ll c, ll &x, ll &y, ll g)
     x *= (c / g);
     y *= (c / g);
 
-    if (a < 0)
-        x = -x;
-    if (b < 0)
-        y = -y;
     return true;
 }
 
 ll find_all_solutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
 {
     ll g, x, y;
-    g = extended_euclid(abs(a), abs(b), x, y);
+    g = extended_euclid(a, b, x, y);
 
     if (!find_any_solution(a, b, c, x, y, g))
     {
