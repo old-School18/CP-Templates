@@ -25,7 +25,7 @@ bool find_any_solution(ll a, ll b, ll c, ll &x, ll &y)
     {
         return false;
     }
-    ll g = extended_euclid(abs(a), abs(b), x, y);
+    ll g = extended_euclid(a, b, x, y);
     if (c % g)
     {
         return false;
@@ -33,10 +33,6 @@ bool find_any_solution(ll a, ll b, ll c, ll &x, ll &y)
     x *= (c / g);
     y *= (c / g);
 
-    if (a < 0)
-        x = -x;
-    if (b < 0)
-        y = -y;
     return true;
 }
 
