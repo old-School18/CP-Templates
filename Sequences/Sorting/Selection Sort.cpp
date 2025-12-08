@@ -1,7 +1,7 @@
 // Time Complexity: O(n2)
 // Memory Complexity: O(1)
 // Stable: No 
-// Simple sorting algorithm with least element selection at each stage
+// Mechanism to sort sequences by selecting the next smallest element from the unsorted window and swapping it with the current index element
 
 
 void selection_sort(ll a[], ll n)
