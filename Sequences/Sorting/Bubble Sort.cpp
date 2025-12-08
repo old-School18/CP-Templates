@@ -1,7 +1,7 @@
 // Time Complexity: O(n2) Worst | O(n2) Average | O(n) Best
 // Memory Complexity: O(1)
 // Stable: Yes
-// Mechanism to sort sequences by moving the next largest element to the last unsorted index
+// Mechanism to sort sequences by moving the next largest element to the last index of the shrinking BUBBLE
 
 void bubble_sort(ll a[], ll n)
 {
