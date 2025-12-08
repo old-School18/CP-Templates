@@ -1,7 +1,7 @@
 // Time Complexity: O(n2)
 // Memory Complexity: O(1)
 // Stable: No 
-// Mechanism to sort sequences by SELECTING the appropriate element for the current position
+// Mechanism to sort sequences by SELECTING the appropriate element for the current iterating index
 
 
 void selection_sort(ll a[], ll n)
