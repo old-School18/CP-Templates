@@ -1,7 +1,7 @@
 // Time Complexity: O(n2)
 // Memory Complexity: O(1)
-// Simple sorting algorithm with least element selection at each stage
 // Stable: No 
+// Simple sorting algorithm with least element selection at each stage
 
 
 void selection_sort(ll a[], ll n)
