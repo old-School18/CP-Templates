@@ -1,7 +1,7 @@
 // Time Complexity: O(nlogn)
 // Memory Complexity: O(n)
 // Stable: Yes
-// Mechanism to sort sequences by dividing the smaller sequences and recursively MERGING them
+// Mechanism to sort sequences by dividing into smaller sequences and recursively MERGING them
 
 void merge(ll a[], ll l, ll r)
 {
