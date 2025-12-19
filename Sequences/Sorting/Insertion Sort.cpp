@@ -1,4 +1,4 @@
-// Time Complexity: O(n2) Worst | O(n2) Average | O(n) Best
+// Time Complexity: O(n^2) Worst | O(n^2) Average | O(n) Best
 // Memory Complexity: O(1)
 // Stable: Yes
 // Mechanism to sort sequences by INSERTING the current iterating index into its appropriate position
