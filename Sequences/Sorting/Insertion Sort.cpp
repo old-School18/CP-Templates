@@ -8,7 +8,7 @@ void insertion_sort(ll a[],ll n) {
     {
         ll curr = a[i];
         ll j = i - 1;
-        while (a[j] > curr && j >= 0)
+        while (j >= 0 && a[j] > curr)
         {
             a[j + 1] = a[j];
             j--;
