@@ -1,4 +1,4 @@
-// Time Complexity: O(n2)
+// Time Complexity: O(n^2)
 // Memory Complexity: O(1)
 // Stable: No 
 // Mechanism to sort sequences by SELECTING the appropriate element for the current iterating index
