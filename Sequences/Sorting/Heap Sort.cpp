@@ -1,7 +1,7 @@
 // Time Complexity: O(nlogn)
 // Memory Complexity: O(1)
 // Stable: No
-// Mechanism to sort sequences by repeatedly max HEAPIFYING the array elements and assigning the root (which has current max value) to the last element of the shrinking window
+// Mechanism to sort sequences by first converting the array to max HEAP and then iteratively swapping the root (which has the current max element) with the last element of the shrinking window and then max HEAPIFYING the root again in order to get the next max element
 
 
 void heapify(ll a[], ll p, ll n)
@@ -25,12 +25,18 @@ void heapify(ll a[], ll p, ll n)
     }
     return;
 }
-void heap_sort(ll a[], ll n)
+
+void convert_to_max_heap(ll a[], ll n)
 {
     for (ll i = n / 2 - 1; i >= 0; i--)
     {
         heapify(a, i, n);
     }
+}
+
+void heap_sort(ll a[], ll n)
+{
+    convert_to_max_heap(a, n);
 
     for (ll i = n - 1; i >= 0; i--)
     {
