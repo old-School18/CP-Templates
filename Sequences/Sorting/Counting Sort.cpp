@@ -25,8 +25,7 @@ void counting_sort(ll a[], ll n)
     ll temp[n];
     for (ll i = n - 1; i >= 0; i--)
     {
-        temp[count[a[i]] - 1] = a[i];
-        count[a[i]]--;
+        temp[--count[a[i]]] = a[i];
     }
 
     for (ll i = 0; i < n; i++)
