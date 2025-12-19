@@ -1,6 +1,6 @@
 // Time Complexity: O(n^2) Worst | O(n(logn)^2) Average | O(nlogn) Best 
 // Memory Complexity: O(1)
-// Stable: Yes
+// Stable: No
 // Mechanism to sort sequences by performing sort in an exponentially decreasing SHELL gap size
 
 
