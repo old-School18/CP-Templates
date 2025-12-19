@@ -1,4 +1,4 @@
-// Time Complexity: O(n2) Worst | O(nlogn) Average | O(nlogn) Best 
+// Time Complexity: O(n^2) Worst | O(nlogn) Average | O(nlogn) Best 
 // Memory Complexity: O(n)
 // Stable: Yes
 // Mechanism to sort sequences by identifying the appropriate position for a given element and then dividing the elements before and after the given element into smaller sequences and recursively solving for them
