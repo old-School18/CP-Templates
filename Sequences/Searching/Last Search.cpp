@@ -1,0 +1,61 @@
+// Time Complexity: O(log n)
+// Memory Complexity: Recursive: O(log n)) | Iterative: O(1)
+// Identify the last occurence of a given element in a sorted sequence by discarding half of the search space in each step
+
+
+// Recursive
+ll last_search_recurse(ll a[], ll target, ll left, ll right)
+{
+    if (left > right)
+    {
+        return -1;
+    }
+    if (left == right)
+    {
+        return ((a[left] == target) ? left : -1);
+    }
+
+    ll mid = left + (right - left + 1) / 2;
+
+    if (a[mid] < target)
+    {
+        return last_search_recurse(a, target, mid + 1, right);
+    }
+    else if (a[mid] == target)
+    {
+        return last_search_recurse(a, target, mid, right);
+    }
+    else
+    {
+        return last_search_recurse(a, target, left, mid - 1);
+    }
+}
+
+ll last_search(ll a[], ll n, ll target)
+{
+    return last_search_recurse(a, target, 0, n - 1);
+}
+
+// Iterative
+ll last_search(ll a[], ll n, ll target)
+{
+    ll left = 0, right = n - 1;
+    while (left < right)
+    {
+        ll mid = left + (right - left + 1) / 2;
+        if (a[mid] < target)
+        {
+            left = mid + 1;
+        }
+        else if (a[mid] == target)
+        {
+            left = mid;
+        }
+        else
+        {
+            right = mid - 1;
+        }
+    }
+
+    return ((a[left] == target) ? left : -1);
+}
