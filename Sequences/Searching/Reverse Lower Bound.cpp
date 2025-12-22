@@ -1,6 +1,6 @@
 // Time Complexity: O(log n)
 // Memory Complexity: Recursive: O(log n)) | Iterative: O(1)
-// Identify the first < give element in a sorted sequence by discarding half of the search space in each step
+// Identify the first <= give element in a sorted sequence by discarding half of the search space in each step
 
 
 // Recursive
