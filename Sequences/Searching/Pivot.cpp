@@ -1,6 +1,6 @@
 // Time Complexity: O(log n)
 // Memory Complexity: Recursive: O(log n)) | Iterative: O(1)
-// Determines the largest element of a sorted rotated array
+// Determines the largest element of a sorted rotated array. Binary searching a sorted rotated array always breaks the array into sorted and unsorted halves. The pivot exists on the unsorted half so eliminate the sorted half at each step
 
 
 // Recursive
@@ -20,11 +20,11 @@ ll find_pivot_recurse(ll a[], ll n, ll left, ll right)
     {
         return find_pivot_recurse(a, n, left + 1, right - 1);
     }
-    else if (a[left] <= a[mid])
+    else if (a[left] <= a[mid])   // left half is sorted half so pivot will be on right half
     {
         return find_pivot_recurse(a, n, mid + 1, right);
     }
-    else
+    else  // right half is sorted half so pivot will be on left half
     {
         return find_pivot_recurse(a, n, left, mid - 1);
     }
@@ -52,11 +52,11 @@ ll find_pivot(ll a[], ll n)
         {
             left++, right--;
         }
-        else if (a[left] <= a[mid])
+        else if (a[left] <= a[mid])   // left half is sorted half so pivot will be on right half
         {
             left = mid + 1;
         }
-        else
+        else  // right half is sorted half so pivot will be on left half
         {
             right = mid - 1;
         }
