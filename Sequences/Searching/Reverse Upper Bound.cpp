@@ -30,6 +30,7 @@ ll lower_than_recurse(ll a[], ll n, ll target, ll left, ll right)
         return lower_than_recurse(a, n, target, left, mid - 1);
     }
 }
+
 ll lower_than(ll a[], ll n, ll target)
 {
     return lower_than_recurse(a, n, target, 0, n - 1);
