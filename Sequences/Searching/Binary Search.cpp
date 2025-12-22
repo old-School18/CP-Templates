@@ -10,10 +10,6 @@ ll bin_search_recurse(ll a[], ll target, ll left, ll right)
     {
         return -1;
     }
-    if (left == right)
-    {
-        return ((a[left] == target) ? left : -1);
-    }
 
     ll mid = left + (right - left) / 2;
 
