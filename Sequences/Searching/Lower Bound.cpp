@@ -49,7 +49,7 @@ ll greater_than_equal_to(ll a[], ll n, ll target)
         {
             left = mid + 1;
         }
-        else if (a[mid] >= target)
+        else
         {
             right = mid;
         }
