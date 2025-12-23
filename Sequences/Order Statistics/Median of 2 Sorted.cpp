@@ -39,13 +39,14 @@ ld median_of_two_recurse(ll a[], ll b[], ll n, ll m, ll k, ll left, ll right)
         return median_of_two_recurse(a, b, n, m, k, partition_a + 1, right);
     }
 }
+
 ld median_of_two(ll a[], ll b[], ll n, ll m)
 {
     if (n > m)
     {
         return median_of_two(b, a, m, n);
     }
-    ll k = (n + m) / 2;
+    ll k = (n + m + 1) / 2;
 
     return median_of_two_recurse(a, b, n, m, k, max(0ll, k - m), min(k, n));
 }
@@ -59,7 +60,7 @@ ld median_of_two(ll a[], ll b[], ll n, ll m)
     {
         return median_of_two(b, a, m, n);
     }
-    ll k = (n + m) / 2;
+    ll k = (n + m + 1) / 2;
 
     ll left = max(0ll, k - m), right = min(k, n);
     while (left <= right)
