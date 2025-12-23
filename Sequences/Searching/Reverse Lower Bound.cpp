@@ -4,36 +4,29 @@
 
 
 // Recursive
-ll lower_than_equal_to_recurse(ll a[], ll n, ll target, ll left, ll right)
+ll lower_than_equal_to_recurse(ll a[], ll n, ll target, ll &result, ll left, ll right)
 {
     if (left > right)
     {
-        return -1;
-    }
-    if (left == right)
-    {
-        if (left >= 0 && a[left] > target)
-        {
-            left--;
-        }
-        return left;
+        return result;
     }
 
     ll mid = left + (right - left + 1) / 2;
 
     if (a[mid] <= target)
     {
-        return lower_than_equal_to_recurse(a, n, target, mid, right);
+        return lower_than_equal_to_recurse(a, n, target, mid, mid + 1, right);
     }
     else
     {
-        return lower_than_equal_to_recurse(a, n, target, left, mid - 1);
+        return lower_than_equal_to_recurse(a, n, target, result, left, mid - 1);
     }
 }
 
 ll lower_than_equal_to(ll a[], ll n, ll target)
 {
-    return lower_than_equal_to_recurse(a, n, target, 0, n - 1);
+    ll result = -1;
+    return lower_than_equal_to_recurse(a, n, target, result, 0, n - 1);
 }
 
 -------------------------------
@@ -41,13 +34,15 @@ ll lower_than_equal_to(ll a[], ll n, ll target)
 // Iterative
 ll lower_than_equal_to(ll a[], ll n, ll target)
 {
+    ll result = -1;
     ll left = 0, right = n - 1;
-    while (left < right)
+    while (left <= right)
     {
         ll mid = left + (right - left + 1) / 2;
         if (a[mid] <= target)
         {
-            left = mid;
+            result = mid;
+            left = mid + 1;
         }
         else
         {
@@ -55,9 +50,5 @@ ll lower_than_equal_to(ll a[], ll n, ll target)
         }
     }
 
-    if (left >= 0 && a[left] > target)
-    {
-        left--;
-    }
-    return left;
+    return result;
 }
