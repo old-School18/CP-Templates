@@ -33,6 +33,8 @@ ll first_search(ll a[], ll n, ll target)
     return first_search_recurse(a, target, result, 0, n - 1);
 }
 
+-----------------------------
+    
 // Iterative
 ll first_search(ll a[], ll n, ll target)
 {
