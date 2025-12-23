@@ -11,7 +11,7 @@ ll lower_than_recurse(ll a[], ll n, ll target, ll &result, ll left, ll right)
         return result;
     }
 
-    ll mid = left + (right - left + 1) / 2;
+    ll mid = left + (right - left) / 2;
 
     if (a[mid] < target)
     {
@@ -38,7 +38,7 @@ ll lower_than(ll a[], ll n, ll target)
     ll left = 0, right = n - 1;
     while (left <= right)
     {
-        ll mid = left + (right - left + 1) / 2;
+        ll mid = left + (right - left) / 2;
         if (a[mid] < target)
         {
             result = mid;
