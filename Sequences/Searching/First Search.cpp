@@ -38,8 +38,8 @@ ll first_search(ll a[], ll n, ll target)
 // Iterative
 ll first_search(ll a[], ll n, ll target)
 {
-    ll left = 0, right = n - 1;
     ll result = -1;
+    ll left = 0, right = n - 1;
     while (left <= right)
     {
         ll mid = left + (right - left) / 2;
