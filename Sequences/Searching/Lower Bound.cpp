@@ -50,9 +50,5 @@ ll greater_than_equal_to(ll a[], ll n, ll target)
         }
     }
 
-    if (left < n && a[left] < target)
-    {
-        left++;
-    }
-    return left;
+    return result;
 }
