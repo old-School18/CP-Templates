@@ -12,7 +12,7 @@ ll find_pivot_recurse(ll a[], ll n, ll left, ll right)
     }
 
     ll mid = left + (right - left) / 2;
-    if ((mid == left || a[mid] >= a[mid - 1]) && (mid == right || a[mid] > a[mid + 1]))
+    if (mid == right || a[mid] > a[mid + 1])
     {
         return mid;
     }
@@ -44,7 +44,7 @@ ll find_pivot(ll a[], ll n)
     while (left <= right)
     {
         ll mid = left + (right - left) / 2;
-        if ((mid == left || a[mid] >= a[mid - 1]) && (mid == right || a[mid] > a[mid + 1]))
+        if (mid == right || a[mid] > a[mid + 1])
         {
             return mid;
         }
