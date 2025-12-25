@@ -1,5 +1,5 @@
 // Time Complexity: O(n)
-// Memory Complexity: Recursive: O(n) | Iterative: O(1)
+// Memory Complexity: O(1)
 // Determine Linked list Cycle head
 
 Node *cycle_head(Node *head)
