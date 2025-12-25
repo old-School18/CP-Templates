@@ -10,12 +10,15 @@ bool is_cycle_detected_recurse(Node *slow, Node *fast)
         return false;
     }
 
+    slow = slow->next;
+    fast = fast->next->next;
+
     if (slow == fast)
     {
         return true;
     }
 
-    return is_cycle_detected_recurse(slow->next, fast->next->next);
+    return is_cycle_detected_recurse(slow, fast);
 }
 
 bool is_cycle_detected(Node *head)
