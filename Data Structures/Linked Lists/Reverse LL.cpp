@@ -34,6 +34,7 @@ Node *reverse_LL_recursive(Node *head)
 
     Node *nextNode = head->next;
     nextNode->next = head;
+    head->next = nullptr;
 
     return prevNode;
 }
