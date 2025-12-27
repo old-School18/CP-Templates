@@ -1,6 +1,6 @@
 // Time Complexity => O(log y)
 // Memory Complexity => Recursive: O(log y) | Iterative: O(1) 
-// x^y
+// x^y  works for all y
 
 // Recursive
 ld negative_exponent(ld x, ll y)
