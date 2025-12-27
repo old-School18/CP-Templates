@@ -1,5 +1,5 @@
-// Time Complexity: O(n)
-// Memory Complexity: O(1)
+// Time Complexity: O(nlog n)
+// Memory Complexity: O(log n)
 // Merge sort algorithm for linked lists
 
 Node *tortoise_hare(Node *head)
