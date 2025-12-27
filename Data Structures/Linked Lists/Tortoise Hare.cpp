@@ -1,6 +1,6 @@
 // Time Complexity: O(n)
 // Memory Complexity: Recursive: O(n) | Iterative: O(1)
-// Identify the middle element of a linked list. For even sized lists, identify the latter middle element.
+// Identify the middle element of a linked list. For even sized lists, identify the latter middle element. If the requirement is to identify the former middle element in even sized lists, initialise fast as head->next
 
 // Recursive
 Node *tortoise_hare_recurse(Node *slow, Node *fast)
