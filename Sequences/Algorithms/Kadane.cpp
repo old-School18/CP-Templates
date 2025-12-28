@@ -5,12 +5,12 @@
 
 ll kadane(ll a[], ll n)
 {
-    ll max_now = 0, max_total = a[0];
+    ll maxNow = 0, maxTotal = a[0];
     for (ll i = 0; i < n; i++)
     {
-        max_now += a[i];
-        max_total = max(max_total, max_now);
-        max_now = max(0, max_now);
+        maxNow += a[i];
+        maxTotal = max(maxTotal, maxNow);
+        maxNow = max(0, maxNow);
     }
-    return max_total;
+    return maxTotal;
 }
