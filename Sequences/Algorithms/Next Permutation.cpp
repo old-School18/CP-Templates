@@ -3,7 +3,7 @@
 // Next permutation of a sequence
 
 
-void next_permutation(ll a[], ll n)
+void nextPermutation(ll a[], ll n)
 {
     for (ll i = n - 2; i >= 0; i--)
     {
