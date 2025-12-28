@@ -3,14 +3,14 @@
 // gcd(a,b) with coefficients of a & b
 
 // Recursive
-ll extended_euclid(ll a, ll b, ll &x, ll &y)
+ll extendedEuclid(ll a, ll b, ll &x, ll &y)
 {
     if (b == 0)
     {
         x = 1, y = 0;
         return a;
     }
-    ll g = extended_euclid(b, a % b, x, y);
+    ll g = extendedEuclid(b, a % b, x, y);
     tie(x, y) = make_tuple(y, x - (a / b) * y);
     return g;
 }
@@ -18,7 +18,7 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
 --------------------------------
     
 // Iterative
-ll extended_euclid(ll a, ll b, ll &x, ll &y)
+ll extendedEuclid(ll a, ll b, ll &x, ll &y)
 {
     ll ca1 = 1, ca2 = 0;
     ll cb1 = 0, cb2 = 1;
