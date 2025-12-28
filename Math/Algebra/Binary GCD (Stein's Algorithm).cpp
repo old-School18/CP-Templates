@@ -27,6 +27,7 @@ ll gcd(ll a, ll b)
 }
 
 ------------------------------------
+    
 // Iterative
 ll gcd(ll a, ll b)
 {
