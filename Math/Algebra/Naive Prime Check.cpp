@@ -3,7 +3,7 @@
 // Using the property that every prime no. is of the 
 // form (6n-1) or (6n+1)
 
-bool is_prime(ll n)
+bool isPrime(ll n)
 {
     if (n <= 1)
         return false;
