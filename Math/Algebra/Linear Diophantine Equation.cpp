@@ -2,7 +2,7 @@
 // Memory Complexity => O(log(min(a,b)))
 // Any one (x,y) that satisfy ax+by=c
 
-ll extended_euclid(ll a, ll b, ll &x, ll &y)
+ll extendedEuclid(ll a, ll b, ll &x, ll &y)
 {
     if (b == 0)
     {
@@ -10,12 +10,12 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
         return a;
     }
 
-    ll g = extended_euclid(b, a % b, x, y);
+    ll g = extendedEuclid(b, a % b, x, y);
     tie(x, y) = make_tuple(y, x - (a / b) * y);
     return g;
 }
 
-bool find_any_solution(ll a, ll b, ll c, ll &x, ll &y)
+bool findAnySolution(ll a, ll b, ll c, ll &x, ll &y)
 {
     if (a == 0 && b == 0 && c == 0)
     {
@@ -25,7 +25,7 @@ bool find_any_solution(ll a, ll b, ll c, ll &x, ll &y)
     {
         return false;
     }
-    ll g = extended_euclid(a, b, x, y);
+    ll g = extendedEuclid(a, b, x, y);
     if (c % g)
     {
         return false;
