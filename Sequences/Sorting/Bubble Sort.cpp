@@ -1,9 +1,9 @@
-// Time Complexity: O(n^2) Worst | O(n^2) Average | O(n) Best
+// Time Complexity: O(n2) Worst | O(n2) Average | O(n) Best
 // Memory Complexity: O(1)
 // Stable: Yes
 // Mechanism to sort sequences by moving the next largest element to the last index of the shrinking BUBBLE
 
-void bubble_sort(ll a[], ll n)
+void bubbleSort(ll a[], ll n)
 {
     bool swapped=true;
     
