@@ -8,20 +8,20 @@ ll mod(ll a, ll M)
 }
 
 // Recursive
-ll mod_exponent(ll x, ll y, ll M)
+ll modExponent(ll x, ll y, ll M)
 {
     if (!y)
         return 1ll;
     else if (!(y % 2ll))
-        return mod(mod_exponent(mod(x * x, M), y / 2ll, M), M);
+        return mod(modExponent(mod(x * x, M), y / 2ll, M), M);
     else
-        return mod(x * mod_exponent(mod(x * x, M), y / 2ll, M), M);
+        return mod(x * modExponent(mod(x * x, M), y / 2ll, M), M);
 }
 
 ------------------------
     
 // Iterative
-ll mod_exponent(ll x, ll y, ll M)
+ll modExponent(ll x, ll y, ll M)
 {
     ll result = 1ll;
     while (y)
