@@ -1,5 +1,5 @@
-// Time Complexity: O(nlogn)
-// Memory Complexity: O(n)
+// Time Complexity: O(nlog n)
+// Memory Complexity: O(log n)
 // Stable: Yes
 // Mechanism to sort sequences by dividing into smaller sequences and recursively MERGING them
 
@@ -18,37 +18,37 @@ void merge(ll a[], ll l, ll r)
         right[i - mid - 1] = a[i];
     }
 
-    ll curr_idx = l;
+    ll currIdx = l;
     ll x = 0, y = 0;
 
     while (x < n1 && y < n2)
     {
-        a[curr_idx++] = (left[x] <= right[y]) ? left[x++] : right[y++];
+        a[currIdx++] = (left[x] <= right[y]) ? left[x++] : right[y++];
     }
     while (x < n1)
     {
-        a[curr_idx++] = left[x++];
+        a[currIdx++] = left[x++];
     }
     while (y < n2)
     {
-        a[curr_idx++] = right[y++];
+        a[currIdx++] = right[y++];
     }
 
     return;
 }
 
-void merge_sort_recursion(ll a[], ll l, ll r)
+void mergeSortRecursion(ll a[], ll l, ll r)
 {
     ll mid = l + (r - l) / 2;
     if (l < r)
     {
-        merge_sort_recursion(a, l, mid);
-        merge_sort_recursion(a, mid + 1, r);
+        mergeSortRecursion(a, l, mid);
+        mergeSortRecursion(a, mid + 1, r);
         merge(a, l, r);
     }
 }
 
-void merge_sort(ll a[], ll n)
+void mergeSort(ll a[], ll n)
 {
-    merge_sort_recursion(a, 0, n - 1);
+    mergeSortRecursion(a, 0, n - 1);
 }
