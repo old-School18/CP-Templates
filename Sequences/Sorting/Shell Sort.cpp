@@ -3,7 +3,6 @@
 // Stable: No
 // Mechanism to sort sequences by performing sort in an exponentially decreasing SHELL gap size
 
-
 void shellSort(ll a[], ll n)
 {
     for (ll gap = n / 2; gap > 0; gap /= 2)
