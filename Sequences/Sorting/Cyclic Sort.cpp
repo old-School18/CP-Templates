@@ -4,7 +4,7 @@
 // Mechanism to sort permutation arrays by swapping elements to their respective indices in CYCLES
 
 
-void cyclic_sort(ll a[], ll n)
+void cyclicSort(ll a[], ll n)
 {
     // a[] -> [1,n]
     for (ll i = 0; i < n; i++)
