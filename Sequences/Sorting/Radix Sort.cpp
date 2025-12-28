@@ -4,7 +4,7 @@
 // Mechanism to sort sequences RADIX by RADIX (radix means base) from unit radix to most significant radix of the largest array element
 
 
-void counting_sort_digit(ll a[], ll n, ll principal)
+void countingSortDigit(ll a[], ll n, ll principal)
 {
     ll count[10] = {0};
     for (ll i = 0; i < n; i++)
@@ -29,11 +29,11 @@ void counting_sort_digit(ll a[], ll n, ll principal)
 
     return;
 }
-void radix_sort(ll a[], ll n)
+void radixSort(ll a[], ll n)
 {
-    ll max_val = *max_element(a, a + n);
-    for (ll i = 1; max_val / i > 0; i *= 10)
+    ll maxVal = *maxElement(a, a + n);
+    for (ll i = 1; maxVal / i > 0; i *= 10)
     {
-        counting_sort_digit(a, n, i);
+        countingSortDigit(a, n, i);
     }
 }
