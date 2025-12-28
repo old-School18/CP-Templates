@@ -2,13 +2,13 @@
 // Memory Complexity => O(log(min(a,b)))
 // All (x,y) that satisfy ax+by=c for given intervals of x and y
 
-void shift_diophantine_solution(ll &x, ll &y, ll a, ll b, ll cnt)
+void shiftDiophantineSolution(ll &x, ll &y, ll a, ll b, ll cnt)
 {
     x += cnt * b;
     y -= cnt * a;
 }
 
-ll extended_euclid(ll a, ll b, ll &x, ll &y)
+ll extendedEuclid(ll a, ll b, ll &x, ll &y)
 {
     if (b == 0)
     {
@@ -16,12 +16,12 @@ ll extended_euclid(ll a, ll b, ll &x, ll &y)
         return a;
     }
 
-    ll g = extended_euclid(b, a % b, x, y);
+    ll g = extendedEuclid(b, a % b, x, y);
     tie(x, y) = make_tuple(y, x - (a / b) * y);
     return g;
 }
 
-bool find_any_solution(ll a, ll b, ll c, ll &x, ll &y, ll g)
+bool findAnySolution(ll a, ll b, ll c, ll &x, ll &y, ll g)
 {
     if (a == 0 && b == 0 && c == 0)
     {
@@ -41,26 +41,26 @@ bool find_any_solution(ll a, ll b, ll c, ll &x, ll &y, ll g)
     return true;
 }
 
-ll find_all_solutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
+ll findAllSolutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
 {
     ll g, x, y;
-    g = extended_euclid(a, b, x, y);
+    g = extendedEuclid(a, b, x, y);
 
-    if (!find_any_solution(a, b, c, x, y, g))
+    if (!findAnySolution(a, b, c, x, y, g))
     {
         return 0;
     }
 
-    ll sign_a = a > 0 ? 1 : -1;
-    ll sign_b = b > 0 ? 1 : -1;
+    ll signA = a > 0 ? 1 : -1;
+    ll signB = b > 0 ? 1 : -1;
 
     a /= g;
     b /= g;
 
-    shift_diophantine_solution(x, y, a, b, (minx - x) / b);
+    shiftDiophantineSolution(x, y, a, b, (minx - x) / b);
     if (x < minx)
     {
-        shift_diophantine_solution(x, y, a, b, sign_b);
+        shiftDiophantineSolution(x, y, a, b, signB);
     }
     else if (x > maxx)
     {
@@ -68,17 +68,17 @@ ll find_all_solutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
     }
     ll lx1 = x;
 
-    shift_diophantine_solution(x, y, a, b, (maxx - x) / b);
+    shiftDiophantineSolution(x, y, a, b, (maxx - x) / b);
     if (x > maxx)
     {
-        shift_diophantine_solution(x, y, a, b, -sign_b);
+        shiftDiophantineSolution(x, y, a, b, -signB);
     }
     ll rx1 = x;
 
-    shift_diophantine_solution(x, y, a, b, -(miny - y) / a);
+    shiftDiophantineSolution(x, y, a, b, -(miny - y) / a);
     if (y < miny)
     {
-        shift_diophantine_solution(x, y, a, b, -sign_a);
+        shiftDiophantineSolution(x, y, a, b, -signA);
     }
     else if (y > maxy)
     {
@@ -86,10 +86,10 @@ ll find_all_solutions(ll a, ll b, ll c, ll minx, ll maxx, ll miny, ll maxy)
     }
     ll lx2 = x;
 
-    shift_diophantine_solution(x, y, a, b, -(maxy - y) / a);
+    shiftDiophantineSolution(x, y, a, b, -(maxy - y) / a);
     if (y > maxy)
     {
-        shift_diophantine_solution(x, y, a, b, sign_a);
+        shiftDiophantineSolution(x, y, a, b, signA);
     }
     ll rx2 = x;
 
