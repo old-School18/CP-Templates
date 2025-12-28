@@ -7,15 +7,15 @@
 void heapify(ll a[], ll p, ll n)
 {
     ll largest = p;
-    ll left_child = 2 * p + 1, right_child = 2 * p + 2;
+    ll leftChild = 2 * p + 1, rightChild = 2 * p + 2;
 
-    if (left_child < n && a[largest] < a[left_child])
+    if (leftChild < n && a[largest] < a[leftChild])
     {
-        largest = left_child;
+        largest = leftChild;
     }
-    if (right_child < n && a[largest] < a[right_child])
+    if (rightChild < n && a[largest] < a[rightChild])
     {
-        largest = right_child;
+        largest = rightChild;
     }
 
     if (largest != p)
@@ -26,7 +26,7 @@ void heapify(ll a[], ll p, ll n)
     return;
 }
 
-void convert_to_max_heap(ll a[], ll n)
+void convertToMaxHeap(ll a[], ll n)
 {
     for (ll i = n / 2 - 1; i >= 0; i--)
     {
@@ -34,9 +34,9 @@ void convert_to_max_heap(ll a[], ll n)
     }
 }
 
-void heap_sort(ll a[], ll n)
+void heapSort(ll a[], ll n)
 {
-    convert_to_max_heap(a, n);
+    convertToMaxHeap(a, n);
 
     for (ll i = n - 1; i >= 0; i--)
     {
