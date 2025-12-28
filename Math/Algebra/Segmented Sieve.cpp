@@ -4,15 +4,15 @@
 
 void sieve(ll n, vector<ll> &prime)
 {
-    vector<char> is_prime(n + 1, 1);
-    is_prime[0] = is_prime[1] = 0;
+    vector<char> isPrime(n + 1, 1);
+    isPrime[0] = isPprime[1] = 0;
     for (ll i = 2; i * i <= n; i++)
     {
-        if (is_prime[i])
+        if (isPrime[i])
         {
             for (ll j = i * i; j <= n; j += i)
             {
-                is_prime[j] = 0;
+                isPrime[j] = 0;
             }
         }
     }
@@ -23,7 +23,7 @@ void sieve(ll n, vector<ll> &prime)
     }
     for (ll i = 3; i <= n; i += 2)
     {
-        if (is_prime[i])
+        if (isPrime[i])
         {
             prime.push_back(i);
         }
@@ -31,43 +31,43 @@ void sieve(ll n, vector<ll> &prime)
     return;
 }
 
-void segmented_sieve(ll n, vector<ll> &all_primes)
+void segmentedSieve(ll n, vector<ll> &allPrimes)
 {
     ll limit = floor(sqrt((long double) n)) + 1;
-    vector<ll> base_primes;
-    sieve(limit, base_primes);
-    all_primes = base_primes;
+    vector<ll> basePrimes;
+    sieve(limit, basePrimes);
+    allPrimes = basePrimes;
     ll lo = limit + 1, hi = 2ll * limit;
 
     while (lo <= n)
     {
         if (hi >= n)
             hi = n;
-        vector<char> is_prime(hi - lo + 1, 1);
+        vector<char> isPrime(hi - lo + 1, 1);
 
         if (lo == 0)
         {
-            is_prime[0] = 0; // 0 not prime
+            isPrime[0] = 0; // 0 not prime
             if (hi >= 1)
-                is_prime[1] = 0; // 1 not prime
+                isPrime[1] = 0; // 1 not prime
         }
         else if (lo == 1)
         {
-            is_prime[0] = 0; // 1 not prime
+            isPrime[0] = 0; // 1 not prime
         }
 
-        for (ll p : base_primes)
+        for (ll p : basePrimes)
         {
             ll start = (lo + p - 1) / p * p;
             if (start < p * p)
                 start = p * p;
             for (ll j = start; j <= hi; j += p)
-                is_prime[j - lo] = 0;
+                isPrime[j - lo] = 0;
         }
 
         for (ll i = lo; i <= hi; i++)
-            if (is_prime[i - lo])
-                all_primes.push_back(i);
+            if (isPrime[i - lo])
+                allPrimes.push_back(i);
 
         lo += limit;
         hi += limit;
