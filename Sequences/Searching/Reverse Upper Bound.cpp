@@ -4,7 +4,7 @@
 
 
 // Recursive
-ll lower_than_recurse(ll a[], ll n, ll target, ll &result, ll left, ll right)
+ll lowerThanRecurse(ll a[], ll n, ll target, ll &result, ll left, ll right)
 {
     if (left > right)
     {
@@ -15,24 +15,24 @@ ll lower_than_recurse(ll a[], ll n, ll target, ll &result, ll left, ll right)
 
     if (a[mid] < target)
     {
-        return lower_than_recurse(a, n, target, mid, mid + 1, right);
+        return lowerThanRecurse(a, n, target, mid, mid + 1, right);
     }
     else
     {
-        return lower_than_recurse(a, n, target, result, left, mid - 1);
+        return lowerThanRecurse(a, n, target, result, left, mid - 1);
     }
 }
 
-ll lower_than(ll a[], ll n, ll target)
+ll lowerThan(ll a[], ll n, ll target)
 {
     ll result = -1;
-    return lower_than_recurse(a, n, target, result, 0, n - 1);
+    return lowerThanRecurse(a, n, target, result, 0, n - 1);
 }
 
 -------------------------------
 
 // Iterative
-ll lower_than(ll a[], ll n, ll target)
+ll lowerThan(ll a[], ll n, ll target)
 {
     ll result = -1;
     ll left = 0, right = n - 1;
