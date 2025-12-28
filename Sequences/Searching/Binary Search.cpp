@@ -4,7 +4,7 @@
 
 
 // Recursive
-ll bin_search_recurse(ll a[], ll target, ll left, ll right)
+ll binSearchRecurse(ll a[], ll target, ll left, ll right)
 {
     if (left > right)
     {
@@ -15,7 +15,7 @@ ll bin_search_recurse(ll a[], ll target, ll left, ll right)
 
     if (a[mid] < target)
     {
-        return bin_search_recurse(a, target, mid + 1, right);
+        return binSearchRecurse(a, target, mid + 1, right);
     }
     else if (a[mid] == target)
     {
@@ -23,19 +23,19 @@ ll bin_search_recurse(ll a[], ll target, ll left, ll right)
     }
     else
     {
-        return bin_search_recurse(a, target, left, mid - 1);
+        return binSearchRecurse(a, target, left, mid - 1);
     }
 }
 
-ll bin_search(ll a[], ll n, ll target)
+ll binSearch(ll a[], ll n, ll target)
 {
-    return bin_search_recurse(a, target, 0, n - 1);
+    return binSearchRecurse(a, target, 0, n - 1);
 }
 
 -------------------------------
 
 // Iterative
-ll bin_search(ll a[], ll n, ll target)
+ll binSearch(ll a[], ll n, ll target)
 {
     ll left = 0, right = n - 1;
     while (left <= right)
