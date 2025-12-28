@@ -1,10 +1,10 @@
-// Time Complexity: O(n^2) Worst | O(n(logn)^2) Average | O(nlogn) Best 
+// Time Complexity: O(n2) Worst | O(nlog2n) Average | O(nlogn) Best 
 // Memory Complexity: O(1)
 // Stable: No
 // Mechanism to sort sequences by performing sort in an exponentially decreasing SHELL gap size
 
 
-void shell_sort(ll a[], ll n)
+void shellSort(ll a[], ll n)
 {
     for (ll gap = n / 2; gap > 0; gap /= 2)
     {
@@ -25,4 +25,7 @@ void shell_sort(ll a[], ll n)
 
 
 ---------------------------------------
-Note: The time complexity is entirely dependent on the shell gap. The worst case time complexity is for the above documented original shell algorithm (n/2,n/4,n/8....1). There are better gap configurations that help us achieve better complexity but it’s out of scope.
+Note: 
+The time complexity is entirely dependent on the shell gap. 
+The worst case time complexity is for the above documented original shell algorithm (n/2,n/4,n/8....1). 
+There are better gap configurations that help us achieve better complexity but it’s out of scope.
