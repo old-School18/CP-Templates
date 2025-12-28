@@ -3,7 +3,7 @@
 // Determins k-majority elements of a sequenece i.e., elements that occur more than (n/k) times
 
 
-vector<ll> boyer_moore(ll a[], ll n, ll k)
+vector<ll> boyerMoore(ll a[], ll n, ll k)
 {
     vector<pair<ll, ll>> candidates;
 
