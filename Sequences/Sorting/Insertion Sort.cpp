@@ -1,9 +1,9 @@
-// Time Complexity: O(n^2) Worst | O(n^2) Average | O(n) Best
+// Time Complexity: O(n2) Worst | O(n2) Average | O(n) Best
 // Memory Complexity: O(1)
 // Stable: Yes
 // Mechanism to sort sequences by INSERTING the current iterating index into its appropriate position
 
-void insertion_sort(ll a[],ll n) {
+void insertionSort(ll a[],ll n) {
     for (ll i = 1; i < n; i++)
     {
         ll curr = a[i];
