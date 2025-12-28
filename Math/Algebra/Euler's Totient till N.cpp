@@ -2,7 +2,7 @@
 // Memory Complexity => O(1)
 // Euler Totient of numbers from 1 to n
 
-void phi_till_n(ll n)
+void phiTillN(ll n)
 {
     vector<ll> phi(n + 1);
     for (ll i = 0; i <= n; i++)
