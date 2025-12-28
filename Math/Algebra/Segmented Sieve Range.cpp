@@ -4,15 +4,15 @@
 
 void sieve(ll n, vector<ll> &prime)
 {
-    vector<char> is_prime(n + 1, 1);
-    is_prime[0] = is_prime[1] = 0;
+    vector<char> isPrime(n + 1, 1);
+    isPrime[0] = isPrime[1] = 0;
     for (ll i = 2; i * i <= n; i++)
     {
-        if (is_prime[i])
+        if (isPrime[i])
         {
             for (ll j = i * i; j <= n; j += i)
             {
-                is_prime[j] = 0;
+                isPrime[j] = 0;
             }
         }
     }
@@ -23,7 +23,7 @@ void sieve(ll n, vector<ll> &prime)
     }
     for (ll i = 3; i <= n; i += 2)
     {
-        if (is_prime[i])
+        if (isPrime[i])
         {
             prime.push_back(i);
         }
@@ -31,26 +31,26 @@ void sieve(ll n, vector<ll> &prime)
     return;
 }
 
-void segmented_sieve_range(ll lo, ll hi, vector<ll> &primes_in_range)
+void segmentedSieveRange(ll lo, ll hi, vector<ll> &primesInRange)
 {
     ll limit = floor(sqrt((long double) hi)) + 1;
-    vector<ll> base_primes;
-    sieve(limit, base_primes);
-    vector<char> is_prime(hi - lo + 1, 1);
+    vector<ll> basePrimes;
+    sieve(limit, basePrimes);
+    vector<char> isPrime(hi - lo + 1, 1);
 
     // handle 0 and 1 explicitly
     if (lo == 0)
     {
-        is_prime[0] = 0; // 0 not prime
+        isPrime[0] = 0; // 0 not prime
         if (hi >= 1)
-            is_prime[1] = 0; // 1 not prime
+            isPrime[1] = 0; // 1 not prime
     }
     else if (lo == 1)
     {
-        is_prime[0] = 0; // 1 not prime
+        isPrime[0] = 0; // 1 not prime
     }
 
-    for (ll p : base_primes)
+    for (ll p : basePrimes)
     {
         // start from the first multiple of p >= lo
         ll start = (lo + p - 1) / p * p;
@@ -58,11 +58,11 @@ void segmented_sieve_range(ll lo, ll hi, vector<ll> &primes_in_range)
             start = p * p;
         for (ll j = start; j <= hi; j += p)
         {
-            is_prime[j - lo] = 0;
+            isPrime[j - lo] = 0;
         }
     }
     for (ll i = lo; i <= hi; i++)
-        if (i > 1 && is_prime[i - lo])
-            primes_in_range.push_back(i);
+        if (i > 1 && isPrime[i - lo])
+            primesInRange.push_back(i);
     return;
 }
