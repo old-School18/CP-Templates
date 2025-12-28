@@ -1,9 +1,9 @@
-// Time Complexity: O(n^2) Worst | O(nlogn) Average | O(nlogn) Best 
+// Time Complexity: O(n2) Worst | O(nlogn) Average | O(nlogn) Best 
 // Memory Complexity: O(n)
 // Stable: Yes
 // Mechanism to sort sequences by identifying the appropriate position for a given element and then dividing the elements before and after the given element into smaller sequences and recursively solving for them
 
-ll find_pivot(ll a[], ll l, ll r)
+ll findPivot(ll a[], ll l, ll r)
 {
     ll pivot = l;
 
@@ -18,17 +18,17 @@ ll find_pivot(ll a[], ll l, ll r)
     return pivot;
 }
 
-void quick_sort_recursion(ll a[], ll l, ll r)
+void quickSortRecursion(ll a[], ll l, ll r)
 {
     if (l < r)
     {
-        ll pivot = find_pivot(a, l, r);
-        quick_sort_recursion(a, l, pivot - 1);
-        quick_sort_recursion(a, pivot + 1, r);
+        ll pivot = findPivot(a, l, r);
+        quickSortRecursion(a, l, pivot - 1);
+        quickSortRecursion(a, pivot + 1, r);
     }
 }
 
-void quick_sort(ll a[], ll n)
+void quickSort(ll a[], ll n)
 {
-    quick_sort_recursion(a, 0, n - 1);
+    quickSortRecursion(a, 0, n - 1);
 }
