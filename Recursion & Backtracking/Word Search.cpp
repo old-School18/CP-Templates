@@ -47,3 +47,7 @@ bool wordSearch(vector<vector<char>> &grid, string &word)
     }
     return false;
 }
+
+---------------------
+Reference:
+https://leetcode.com/problems/word-search/
