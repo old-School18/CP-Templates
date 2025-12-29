@@ -7,6 +7,7 @@ bool isValid(vector<vector<char>> &grid, string &word, ll n, ll m, vector<vector
 {
     return (i >= 0 && i <= n - 1 && j >= 0 && j <= m - 1 && grid[i][j] == word[idx] && !vis[i][j]);
 }
+
 bool wordSearchBacktrack(vector<vector<char>> &grid, string &word, ll n, ll m, vector<vector<bool>> &vis, ll i, ll j,
                          ll idx)
 {
