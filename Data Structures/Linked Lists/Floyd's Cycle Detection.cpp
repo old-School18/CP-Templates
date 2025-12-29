@@ -3,7 +3,7 @@
 // Identify if a cycle exists in a linked list
 
 // Recursive
-bool is_cycle_detected_recurse(Node *slow, Node *fast)
+bool isCycleDetectedRecurse(Node *slow, Node *fast)
 {
     if (fast == nullptr || fast->next == nullptr)
     {
@@ -18,18 +18,18 @@ bool is_cycle_detected_recurse(Node *slow, Node *fast)
         return true;
     }
 
-    return is_cycle_detected_recurse(slow, fast);
+    return isCycleDetectedRecurse(slow, fast);
 }
 
-bool is_cycle_detected(Node *head)
+bool isCycleDetected(Node *head)
 {
-    return is_cycle_detected_recurse(head, head);
+    return isCycleDetectedRecurse(head, head);
 }
 
 -------------------------------
 
 // Iterative
-bool is_cycle_detected(Node *head)
+bool isCycleDetected(Node *head)
 {
     Node *slow = head, *fast = head;
 
