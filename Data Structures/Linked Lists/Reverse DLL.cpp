@@ -3,7 +3,7 @@
 // Reverse a double Linked List
 
 // Recursive
-DoubleNode *reverse_DLL_recurse(DoubleNode *prevNode, DoubleNode *curr)
+DoubleNode *reverseDLLRecurse(DoubleNode *prevNode, DoubleNode *curr)
 {
     if (curr == nullptr)
     {
@@ -13,18 +13,18 @@ DoubleNode *reverse_DLL_recurse(DoubleNode *prevNode, DoubleNode *curr)
     DoubleNode *nextNode = curr->next;
     curr->prev = nextNode;
     curr->next = prevNode;
-    return reverse_DLL_recurse(curr, nextNode);
+    return reverseDLLRecurse(curr, nextNode);
 }
 
-DoubleNode *reverse_DLL(DoubleNode *head)
+DoubleNode *reverseDLL(DoubleNode *head)
 {
-    return reverse_DLL_recurse(nullptr, head);
+    return reverseDLLRecurse(nullptr, head);
 }
 
 -------------------------------
 
 // Iterative
-DoubleNode *reverse_DLL(DoubleNode *head)
+DoubleNode *reverseDLL(DoubleNode *head)
 {
     DoubleNode *prevNode = nullptr;
     DoubleNode *curr = head;
