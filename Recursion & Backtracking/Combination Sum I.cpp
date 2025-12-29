@@ -1,4 +1,4 @@
-// Time Complexity => O(2T/M) where T - Target and M - Minimum candidate value 
+// Time Complexity => O(2^(T/M)) where T - Target and M - Minimum candidate value 
 // Memory Complexity => O(T/M)
 // Given an array of DISTINCT integers, determine all the unique combinations of the integers that sum up to a given value. An integer can be used multiple times.
 
