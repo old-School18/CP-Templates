@@ -1,10 +1,10 @@
 // Time Complexity: O(n)
 // Memory Complexity: O(1)
-// Determine whether a linked list is palindrome or not
+// Merge sort algorithm for linked lists
 
 Node *tortoiseHare(Node *head)
 {
-    Node *slow = head, *fast = head;
+    Node *slow = head, *fast = head->next;
 
     while (fast != nullptr && fast->next != nullptr)
     {
@@ -15,33 +15,52 @@ Node *tortoiseHare(Node *head)
     return slow;
 }
 
-Node *reverseLL(Node *head)
+Node *merge(Node *left, Node *right)
 {
-    Node *prevNode = nullptr;
-    Node *curr = head;
-    while (curr != nullptr)
-    {
-        Node *nextNode = curr->next;
-        curr->next = prevNode;
-        prevNode = curr;
-        curr = nextNode;
-    }
+    Node *mergedListHead = new Node(-1);
+    Node *temp = mergedListHead;
 
-    return prevNode;
-}
-bool isPalindrome(Node *head)
-{
-    Node *middleNode = tortoiseHare(head);
-    Node *tail = reverseLL(middleNode);
-
-    while (head->data == tail->val)
+    while (left != nullptr && right != nullptr)
     {
-        if (tail == middleNode)
+        if (left->data <= right->data)
         {
-            return true;
+            temp->next = left;
+            left = left->next;
         }
-        head = head->next;
-        tail = tail->next;
+        else
+        {
+            temp->next = right;
+            right = right->next;
+        }
+        temp = temp->next;
     }
-    return false;
+
+    if (left != nullptr)
+    {
+        temp->next = left;
+    }
+    if (right != nullptr)
+    {
+        temp->next = right;
+    }
+
+    return mergedListHead->next;
+}
+
+Node *mergeSort(Node *head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        return head;
+    }
+
+    Node *middleNode = tortoiseHare(head);
+    Node *left = head;
+    Node *right = middleNode->next;
+    middleNode->next = nullptr;
+
+    left = mergeSort(left);
+    right = mergeSort(right);
+
+    return merge(left, right);
 }
