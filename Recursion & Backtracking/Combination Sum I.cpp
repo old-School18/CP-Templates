@@ -3,7 +3,7 @@
 // Given an array of DISTINCT integers, determine all the unique combinations of the integers that sum up to a given value. An integer can be used multiple times.
 
 // Inclusion-Exclusion strategy
-void combination_sum_backtrack(vector<ll> &candidates, ll target, vector<vector<ll>> &results, vector<ll> &temp, ll idx)
+void combinationSumBacktrack(vector<ll> &candidates, ll target, vector<vector<ll>> &results, vector<ll> &temp, ll idx)
 {
     if (target == 0)
     {
@@ -16,18 +16,18 @@ void combination_sum_backtrack(vector<ll> &candidates, ll target, vector<vector<
     }
 
     temp.push_back(candidates[idx]);
-    combination_sum_backtrack(candidates, target - candidates[idx], results, temp, idx);
+    combinationSumBacktrack(candidates, target - candidates[idx], results, temp, idx);
     temp.pop_back();
 
-    combination_sum_backtrack(candidates, target, results, temp, idx + 1);
+    combinationSumBacktrack(candidates, target, results, temp, idx + 1);
     return;
 }
 
-vector<vector<ll>> combination_sum(vector<ll> &candidates, ll target)
+vector<vector<ll>> combinationSum(vector<ll> &candidates, ll target)
 {
     vector<vector<ll>> results;
     vector<ll> temp;
-    combination_sum_backtrack(candidates, target, results, temp, 0);
+    combinationSumBacktrack(candidates, target, results, temp, 0);
     return results;
 }
 
