@@ -4,5 +4,5 @@
 
 bool isPowerOfTwo(ll n)
 {
-    return (!(n & (n - 1ll)));
+    return (n > 0 && !(n & (n - 1ll)));
 }
