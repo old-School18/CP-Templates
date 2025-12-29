@@ -1,4 +1,4 @@
-// Time Complexity => O(n.m.3L) where L – length of the word
+// Time Complexity => O(n.m.3^L) where L – length of the word
 // Memory Complexity => O(n.m + L)
 // Determine if a given word is present in a grid
 
