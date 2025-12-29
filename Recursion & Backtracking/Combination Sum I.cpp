@@ -30,3 +30,7 @@ vector<vector<ll>> combination_sum(vector<ll> &candidates, ll target)
     combination_sum_backtrack(candidates, target, results, temp, 0);
     return results;
 }
+
+----------------------------
+Reference:
+https://leetcode.com/problems/combination-sum/
