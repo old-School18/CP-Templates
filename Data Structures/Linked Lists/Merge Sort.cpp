@@ -1,8 +1,8 @@
-// Time Complexity: O(nlog n)
-// Memory Complexity: O(log n)
+// Time Complexity: O(n)
+// Memory Complexity: O(1)
 // Merge sort algorithm for linked lists
 
-Node *tortoise_hare(Node *head)
+Node *tortoiseHare(Node *head)
 {
     Node *slow = head, *fast = head->next;
 
@@ -17,8 +17,8 @@ Node *tortoise_hare(Node *head)
 
 Node *merge(Node *left, Node *right)
 {
-    Node *merged_list_head = new Node(-1);
-    Node *temp = merged_list_head;
+    Node *mergedListHead = new Node(-1);
+    Node *temp = mergedListHead;
 
     while (left != nullptr && right != nullptr)
     {
@@ -44,23 +44,23 @@ Node *merge(Node *left, Node *right)
         temp->next = right;
     }
 
-    return merged_list_head->next;
+    return mergedListHead->next;
 }
 
-Node *merge_sort(Node *head)
+Node *mergeSort(Node *head)
 {
     if (head == nullptr || head->next == nullptr)
     {
         return head;
     }
 
-    Node *middle_node = tortoise_hare(head);
+    Node *middleNode = tortoiseHare(head);
     Node *left = head;
-    Node *right = middle_node->next;
-    middle_node->next = nullptr;
+    Node *right = middleNode->next;
+    middleNode->next = nullptr;
 
-    left = merge_sort(left);
-    right = merge_sort(right);
+    left = mergeSort(left);
+    right = mergeSort(right);
 
     return merge(left, right);
 }
