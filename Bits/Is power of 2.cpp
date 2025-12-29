@@ -2,7 +2,7 @@
 // Memory Complexity => O(1)
 // Check if a number is a power of 2
 
-bool isPowerOfTwo(ll x)
+bool isPowerOfTwo(ll n)
 {
-    return (!(x & (x - 1ll)));
+    return (!(n & (n - 1ll)));
 }
