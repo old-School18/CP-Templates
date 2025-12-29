@@ -42,3 +42,7 @@ vector<vector<string>> nQueens(ll n)
     nQueensBacktrack(n, results, temp, isColVisited, isLeftDiagVisited, isRightDiagVisited, 0);
     return results;
 }
+
+-----------------------
+Reference:
+https://leetcode.com/problems/n-queens/
