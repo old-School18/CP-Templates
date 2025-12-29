@@ -1,41 +1,47 @@
 // Time Complexity: O(n)
-// Memory Complexity: Recursive: O(n) | Iterative: O(1)
-// Reverse a double Linked List
+// Memory Complexity: O(1)
+// Determine whether a linked list is palindrome or not
 
-// Recursive
-DoubleNode *reverseDLLRecurse(DoubleNode *prevNode, DoubleNode *curr)
+Node *tortoiseHare(Node *head)
 {
-    if (curr == nullptr)
+    Node *slow = head, *fast = head;
+
+    while (fast != nullptr && fast->next != nullptr)
     {
-        return prevNode;
+        slow = slow->next;
+        fast = fast->next->next;
     }
 
-    DoubleNode *nextNode = curr->next;
-    curr->prev = nextNode;
-    curr->next = prevNode;
-    return reverseDLLRecurse(curr, nextNode);
+    return slow;
 }
 
-DoubleNode *reverseDLL(DoubleNode *head)
+Node *reverseLL(Node *head)
 {
-    return reverseDLLRecurse(nullptr, head);
-}
-
--------------------------------
-
-// Iterative
-DoubleNode *reverseDLL(DoubleNode *head)
-{
-    DoubleNode *prevNode = nullptr;
-    DoubleNode *curr = head;
+    Node *prevNode = nullptr;
+    Node *curr = head;
     while (curr != nullptr)
     {
-        DoubleNode *nextNode = curr->next;
-        curr->prev = nextNode;
+        Node *nextNode = curr->next;
         curr->next = prevNode;
         prevNode = curr;
         curr = nextNode;
     }
 
     return prevNode;
+}
+bool isPalindrome(Node *head)
+{
+    Node *middleNode = tortoiseHare(head);
+    Node *tail = reverseLL(middleNode);
+
+    while (head->data == tail->val)
+    {
+        if (tail == middleNode)
+        {
+            return true;
+        }
+        head = head->next;
+        tail = tail->next;
+    }
+    return false;
 }
