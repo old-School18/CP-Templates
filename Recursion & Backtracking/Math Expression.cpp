@@ -44,3 +44,7 @@ vector<string> mathExpression(string num, int target)
     mathExpressionBacktrack(num, target, results, "", 0, 0, 0);
     return results;
 }
+
+---------------------------
+Reference:
+https://leetcode.com/problems/expression-add-operators/
