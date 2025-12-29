@@ -1,5 +1,5 @@
-// Time Complexity => O(2 T/M) where T - Target and M - Minimum candidate value 
-// Memory Complexity => O(T/M)
+// Time Complexity => O(N!)
+// Memory Complexity => O(N^2)
 // Place N queens in an N*N chessboard such that no two queens can attack each other
 
 // Iterative strategy
