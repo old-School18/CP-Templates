@@ -35,3 +35,7 @@ void palindromePartitioningBacktrack(string s, vector<vector<string>> &results, 
 
     return;
 }
+
+--------------------
+Reference:
+https://leetcode.com/problems/palindrome-partitioning/
