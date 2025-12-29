@@ -2,7 +2,7 @@
 // Memory Complexity: O(1)
 // Determine Linked list Cycle length
 
-ll cycle_length(Node *head)
+ll cycleLength(Node *head)
 {
     Node *slow = head, *fast = head;
 
@@ -13,15 +13,15 @@ ll cycle_length(Node *head)
 
         if (slow == fast)
         {
-            ll cycle_length = 1;
+            ll cycleLength = 1;
             slow = slow->next;
             while (slow != fast)
             {
                 slow = slow->next;
-                cycle_length++;
+                cycleLength++;
             }
 
-            return cycle_length;
+            return cycleLength;
         }
     }
 
