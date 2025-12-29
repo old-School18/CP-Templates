@@ -62,5 +62,5 @@ void backtrack(string &num, ll target, vector<string> &results, string current_e
 
 ------------------------------------
 References:
-// [Word Search problem](https://leetcode.com/problems/word-search/)
-Math Expression problem
+Word Search problem: https://leetcode.com/problems/word-search/
+Math Expression problem: https://leetcode.com/problems/expression-add-operators/
