@@ -21,6 +21,8 @@ bool words_in_dictionary(string candidate, vector<string> &dict, ll idx)
     return false;
 }
 
+---------------------------------------
+
 // Math expression problem
 // Determine if +/-/* can be inserted at different places in a string so that it gets transformed to a math expression which upon evaluation equals given value
 void backtrack(string &num, ll target, vector<string> &results, string current_expression, ll current_value,
@@ -57,3 +59,8 @@ void backtrack(string &num, ll target, vector<string> &results, string current_e
                   i + 1);
     }
 }
+
+------------------------------------
+References:
+// [Word Search problem](https://leetcode.com/problems/word-search/)
+Math Expression problem
