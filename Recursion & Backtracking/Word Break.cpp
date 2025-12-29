@@ -48,3 +48,7 @@ bool words_in_dict(string &candidate, vector<string> &dict)
 {
     return words_in_dict_backtrack(candidate, dict, 0, "");
 }
+
+---------------------
+Reference:
+https://leetcode.com/problems/word-break/
