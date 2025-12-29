@@ -1,6 +1,6 @@
-// Time Complexity => O(2 T/M) where T - Target and M - Minimum candidate value 
-// Memory Complexity => O(T/M)
-// Sudoku puzzle solver
+// Time Complexity => O(9^81) for a 9*9 board 
+// Memory Complexity => O(81)
+// Solves a 9*9 sudoku puzzle. Puzzle board size can be varied in the algorithm
 
 // Iterative strategy
 bool isValid(vector<vector<char>> &board, ll x, ll y, char c)
@@ -25,6 +25,7 @@ bool isValid(vector<vector<char>> &board, ll x, ll y, char c)
     }
     return true;
 }
+
 bool sudokuBacktrack(vector<vector<char>> &board, ll row)
 {
 
