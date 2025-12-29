@@ -3,7 +3,7 @@
 // Reverse a single Linked List
 
 // Recursive
-Node *reverse_LL_recurse(Node *prevNode, Node *curr)
+Node *reverseLLRecurse(Node *prevNode, Node *curr)
 {
     if (curr == nullptr)
     {
@@ -12,25 +12,25 @@ Node *reverse_LL_recurse(Node *prevNode, Node *curr)
 
     Node *nextNode = curr->next;
     curr->next = prevNode;
-    return reverse_LL_recurse(curr, nextNode);
+    return reverseLLRecurse(curr, nextNode);
 }
-Node *reverse_LL(Node *head)
+Node *reverseLL(Node *head)
 {
-    return reverse_LL_recurse(nullptr, head);
+    return reverseLLRecurse(nullptr, head);
 }
 
 
 -------------------------------
 
 // Recursive #2
-Node *reverse_LL_recursive(Node *head)
+Node *reverseLLRecursive(Node *head)
 {
     if (head == nullptr || head->next == nullptr)
     {
         return head;
     }
 
-    Node *prevNode = reverse_LL_recursive(head->next);
+    Node *prevNode = reverseLLRecursive(head->next);
 
     Node *nextNode = head->next;
     nextNode->next = head;
@@ -42,7 +42,7 @@ Node *reverse_LL_recursive(Node *head)
 -------------------------------
 
 // Iterative
-Node *reverse_LL(Node *head)
+Node *reverseLL(Node *head)
 {
     Node *prevNode = nullptr;
     Node *curr = head;
