@@ -67,3 +67,7 @@ vector<vector<ll>> combination_sum2(vector<ll> &candidates, ll target)
     combination_sum2_backtrack(candidates, target, results, temp, false, 0);
     return results;
 }
+
+---------------------------
+Reference:
+https://leetcode.com/problems/combination-sum-ii/
