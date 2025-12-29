@@ -1,5 +1,5 @@
-// Time Complexity => O(2n)
-// Memory Complexity => O(n2)
+// Time Complexity => O(2^n)
+// Memory Complexity => O(n^2)
 // Partition a string such that every substring is a palindrome
 
 // Substring Slicing Strategy
