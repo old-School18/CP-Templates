@@ -1,4 +1,4 @@
-// Time Complexity => O(2n.n) where T - Target and M - Minimum candidate value 
+// Time Complexity => O(\(2^{n}\).n) where T - Target and M - Minimum candidate value 
 // Memory Complexity => O(n)
 // Given an array of NON-DISTINCT integers, determine all the unique combinations of the integers that sum up to a given value. An integer can be used only once.
 
@@ -59,7 +59,6 @@ void combination_sum2_backtrack(vector<ll> &candidates, ll target, vector<vector
     combination_sum2_backtrack(candidates, target, results, temp, false, idx + 1);
     return;
 }
-
 vector<vector<ll>> combination_sum2(vector<ll> &candidates, ll target)
 {
     vector<vector<ll>> results;
