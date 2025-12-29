@@ -31,9 +31,9 @@ class Node
     }
 };
 
-Node *cloned_list(Node *head)
+Node *clonedList(Node *head)
 {
-    Node *cloned_head = nullptr, *cloned_temp = nullptr;
+    Node *clonedHead = nullptr, *clonedTemp = nullptr;
     Node *temp = head;
 
     /* First round: Map original list next pointer to corresponding cloned list node.
@@ -41,14 +41,14 @@ Node *cloned_list(Node *head)
     */
     while (temp != nullptr)
     {
-        Node *cloned_node = new Node(temp->data);
-        Node *next_node = temp->next;
-        cloned_node->next = next_node;
-        temp->next = cloned_node;
-        temp = next_node;
-        if (cloned_head == nullptr)
+        Node *clonedNode = new Node(temp->data);
+        Node *nextNode = temp->next;
+        clonedNode->next = nextNode;
+        temp->next = clonedNode;
+        temp = nextNode;
+        if (clonedHead == nullptr)
         {
-            cloned_head = cloned_node;
+            clonedHead = clonedNode;
         }
     }
 
@@ -73,14 +73,14 @@ Node *cloned_list(Node *head)
     */
     while (temp != nullptr)
     {
-        Node *original_next = temp->next->next;
-        if (original_next != nullptr)
+        Node *originalNext = temp->next->next;
+        if (originalNext != nullptr)
         {
-            temp->next->next = original_next->next;
+            temp->next->next = originalNext->next;
         }
-        temp->next = original_next;
+        temp->next = originalNext;
         temp = temp->next;
     }
 
-    return cloned_head;
+    return clonedHead;
 }
