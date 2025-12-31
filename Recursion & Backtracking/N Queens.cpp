@@ -2,7 +2,7 @@
 // Memory Complexity => O(N^2)
 // Place N queens in an N*N chessboard such that no two queens can attack each other
 
-// Iterative strategy
+// Mark-unmark strategy
 bool isValidPosition(ll row, ll col, ll n, vector<bool> &isColVisited, vector<bool> &isLeftDiagVisited,
                      vector<bool> &isRightDiagVisited)
 {
