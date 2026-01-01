@@ -1,7 +1,7 @@
 // Time Complexity => Push Heavy — O(n) push | O(1) pop | O(1) pop | O(1) isEmpty
 					  Pop Heavy  — O(1) push | O(n) pop | O(n) pop | O(1) isEmpty
 // Memory Complexity => O(1)
-// Implement stack using two queues
+// Implement stack using single queue
 
 
 // Push Heavy
