@@ -2,32 +2,6 @@
 // Memory Complexity => O(n)
 // Evaluate prefix mathematical expressions
 
-
-ll getPrecedence(char opr)
-{
-    if (opr == '^')
-    {
-        return 3;
-    }
-    else if (opr == '/' || opr == '*' || opr == '%')
-    {
-        return 2;
-    }
-    else if (opr == '+' || opr == '-')
-    {
-        return 1;
-    }
-    else
-    {
-        return -1;
-    }
-}
-
-bool isRightAssociative(char opr)
-{
-    return opr == '^';
-}
-
 string getNumberBackward(string &expression, ll &k)
 {
     string value = "";
