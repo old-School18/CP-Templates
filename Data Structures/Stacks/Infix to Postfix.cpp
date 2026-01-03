@@ -34,7 +34,7 @@ string infixToPostfix(string &expression)
     stack<char> operators;
     for (ll i = 0; i < n; i++)
     {
-        if (isalpha(expression[i]) || isdigit(expression[i]))
+        if (isalpha(expression[i]) || isdigit(expression[i]) || expression[i] == ' ')
         {
             postfix += expression[i];
         }
@@ -51,12 +51,12 @@ string infixToPostfix(string &expression)
             }
             operators.pop();
         }
-        else if (expression[i] != ' ')
+        else
         {
             while (!operators.empty() && operators.top() != '(' &&
                    ((getPrecedence(operators.top()) > getPrecedence(expression[i])) ||
                     (getPrecedence(operators.top()) == getPrecedence(expression[i]) &&
-                     !isRightAssociative(operators.top()))))
+                     !isRightAssociative(expression[i]))))
             {
                 postfix += operators.top();
                 operators.pop();
