@@ -2,16 +2,6 @@
 // Memory Complexity => O(n)
 // Convert prefix to infix
 
-string getNumber(string &expression, ll n, ll &k)
-{
-    string value = "";
-    while (k < n && isdigit(expression[k]))
-    {
-        value += expression[k++];
-    }
-    return value;
-}
-
 string getNumberBackward(string &expression, ll &k)
 {
     string value = "";
@@ -20,40 +10,7 @@ string getNumberBackward(string &expression, ll &k)
         value += expression[k--];
     }
 
-    reverse(value.begin(), value.end());
     return value;
-}
-
-string reverseMathExpression(string expression)
-{
-    string reversedExpression = "";
-    ll n = expression.size();
-    for (ll i = n - 1; i >= 0; i--)
-    {
-        if (isdigit(expression[i]))
-        {
-            string value = getNumberBackward(expression, i);
-            reversedExpression += value;
-            i++;
-        }
-        else if (isalpha(expression[i]))
-        {
-            reversedExpression += expression[i];
-        }
-        else if (expression[i] == '(')
-        {
-            reversedExpression += ')';
-        }
-        else if (expression[i] == ')')
-        {
-            reversedExpression += '(';
-        }
-        else
-        {
-            reversedExpression += expression[i];
-        }
-    }
-    return reversedExpression;
 }
 
 string deduceSubExpression(stack<string> &operands, char opr)
@@ -62,20 +19,20 @@ string deduceSubExpression(stack<string> &operands, char opr)
     operands.pop();
     string value1 = operands.top();
     operands.pop();
-    return "(" + value1 + " " + opr + " " + value2 + ")";
+    return ")" + value1 + " " + opr + " " + value2 + "(";
 }
 
-string postfixToInfix(string &expression)
+string prefixToInfix(string &expression)
 {
     ll n = expression.size();
     stack<string> operands;
-    for (ll i = 0; i < n; i++)
+    for (ll i = n - 1; i >= 0; i--)
     {
         if (isdigit(expression[i]))
         {
-            string value = getNumber(expression, n, i);
+            string value = getNumberBackward(expression, i);
             operands.push(value);
-            i--;
+            i++;
         }
         else if (isalpha(expression[i]))
         {
@@ -88,13 +45,7 @@ string postfixToInfix(string &expression)
         }
     }
 
-    return operands.top();
-}
-
-string prefixToInfx(string &expression)
-{
-    expression = reverseMathExpression(expression);
-    string prefix = postfixToInfix(expression);
-    prefix = reverseMathExpression(prefix);
-    return prefix;
+    string infix = operands.top();
+    reverse(infix.begin(), infix.end());
+    return infix;
 }
