@@ -33,7 +33,7 @@ ld applyOperation(ld x, ld y, char op)
     return 0.0;
 }
 
-ld evaluateLogic(stack<ld> &operands, char opr)
+ld evaluateSubExpression(stack<ld> &operands, char opr)
 {
     ld value2 = operands.top();
     operands.pop();
@@ -58,7 +58,7 @@ ld evaluatePostfix(string expression)
         }
         else if (expression[i] != ' ')
         {
-            ld value = evaluateLogic(operands, expression[i]);
+            ld value = evaluateSubExpression(operands, expression[i]);
             operands.push(value);
         }
     }
