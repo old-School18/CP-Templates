@@ -22,80 +22,43 @@ ll getPrecedence(char opr)
     }
 }
 
-string getNumberBackward(string &expression, ll &k)
+bool isRightAssociative(char opr)
 {
-    string value = "";
-    while (k >= 0 && isdigit(expression[k]))
-    {
-        value += expression[k--];
-    }
-
-    reverse(value.begin(), value.end());
-    return value;
+    return opr == '^';
 }
 
-string reverseMathExpression(string expression)
+string infixToPrefix(string &expression)
 {
-    string reversedExpression = "";
     ll n = expression.size();
+    string prefix = "";
+    stack<char> operators;
     for (ll i = n - 1; i >= 0; i--)
     {
-        if (isdigit(expression[i]))
+        if (isalpha(expression[i]) || isdigit(expression[i]) || expression[i] == ' ')
         {
-            string value = getNumberBackward(expression, i);
-            reversedExpression += value;
-            i++;
-        }
-        else if (isalpha(expression[i]))
-        {
-            reversedExpression += expression[i];
-        }
-        else if (expression[i] == '(')
-        {
-            reversedExpression += ')';
+            prefix += expression[i];
         }
         else if (expression[i] == ')')
-        {
-            reversedExpression += '(';
-        }
-        else
-        {
-            reversedExpression += expression[i];
-        }
-    }
-    return reversedExpression;
-}
-
-string infixToPostfixWithoutAssociativity(string &expression)
-{
-    ll n = expression.size();
-    string postfix = "";
-    stack<char> operators;
-    for (ll i = 0; i < n; i++)
-    {
-        if (isalpha(expression[i]) || isdigit(expression[i]))
-        {
-            postfix += expression[i];
-        }
-        else if (expression[i] == '(')
         {
             operators.push(expression[i]);
         }
-        else if (expression[i] == ')')
+        else if (expression[i] == '(')
         {
-            while (!operators.empty() && operators.top() != '(')
+            while (!operators.empty() && operators.top() != ')')
             {
-                postfix += operators.top();
+                prefix += operators.top();
                 operators.pop();
             }
             operators.pop();
         }
-        else if (expression[i] != ' ')
+        else
         {
-            while (!operators.empty() && operators.top() != '(' &&
-                   getPrecedence(operators.top()) > getPrecedence(expression[i]))
+            while (
+                !operators.empty() && operators.top() != ')' &&
+                ((getPrecedence(operators.top()) > getPrecedence(expression[i])) ||
+                 (getPrecedence(operators.top()) == getPrecedence(expression[i]) && isRightAssociative(expression[i]))))
             {
-                postfix += operators.top();
+                prefix += operators.top();
                 operators.pop();
             }
             operators.push(expression[i]);
@@ -104,17 +67,10 @@ string infixToPostfixWithoutAssociativity(string &expression)
 
     while (!operators.empty())
     {
-        postfix += operators.top();
+        prefix += operators.top();
         operators.pop();
     }
 
-    return postfix;
-}
-
-string infixToPrefix(string &expression)
-{
-    expression = reverseMathExpression(expression);
-    string prefix = infixToPostfixWithoutAssociativity(expression);
-    prefix = reverseMathExpression(prefix);
+    reverse(prefix.begin(), prefix.end());
     return prefix;
 }
