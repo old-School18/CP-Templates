@@ -2,7 +2,6 @@
 // Memory Complexity => O(n)
 // Evaluate infix mathematical expressions
 
-
 ll getPrecedence(char opr)
 {
     if (opr == '^')
@@ -58,7 +57,6 @@ ld applyOperation(ld x, ld y, char op)
 
     return 0.0;
 }
-
 ld evaluateSubExpression(stack<ld> &operands, stack<char> &operators)
 {
     ld value2 = operands.top();
@@ -97,7 +95,7 @@ ld evaluateInfix(string expression)
             }
             operators.pop();
         }
-        else
+        else if(expression[i] != ' ')
         {
             while (!operators.empty() && operators.top() != '(' &&
                    ((getPrecedence(operators.top()) > getPrecedence(expression[i])) ||
