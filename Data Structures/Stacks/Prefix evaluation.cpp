@@ -2,7 +2,7 @@
 // Memory Complexity => O(n)
 // Evaluate prefix mathematical expressions
 
-string getNumberBackward(string &expression, ll &k)
+ll getNumberBackward(string &expression, ll &k)
 {
     string value = "";
     while (k >= 0 && isdigit(expression[k]))
@@ -11,45 +11,7 @@ string getNumberBackward(string &expression, ll &k)
     }
 
     reverse(value.begin(), value.end());
-    return value;
-}
-
-string reverseMathExpression(string expression)
-{
-    string reversedExpression = "";
-    ll n = expression.size();
-    for (ll i = n - 1; i >= 0; i--)
-    {
-        if (isdigit(expression[i]))
-        {
-            string value = getNumberBackward(expression, i);
-            reversedExpression += value;
-            i++;
-        }
-        else if (expression[i] == '(')
-        {
-            reversedExpression += ')';
-        }
-        else if (expression[i] == ')')
-        {
-            reversedExpression += '(';
-        }
-        else
-        {
-            reversedExpression += expression[i];
-        }
-    }
-    return reversedExpression;
-}
-
-ll getNumber(string &expression, ll n, ll &k)
-{
-    ll value = 0;
-    while (k < n && isdigit(expression[k]))
-    {
-        value = value * 10 + (expression[k++] - '0');
-    }
-    return value;
+    return stoll(value);
 }
 
 ld applyOperation(ld x, ld y, char op)
@@ -86,16 +48,15 @@ ld evaluateSubExpression(stack<ld> &operands, char opr)
 ld evaluatePrefix(string expression)
 {
     ll n = expression.size();
-    expression = reverseMathExpression(expression);
     stack<ld> operands;
 
-    for (ll i = 0; i < n; i++)
+    for (ll i = n - 1; i >= 0; i--)
     {
         if (isdigit(expression[i]))
         {
-            ld value = 1.0 * getNumber(expression, n, i);
+            ld value = 1.0 * getNumberBackward(expression, i);
             operands.push(value);
-            i--;
+            i++;
         }
         else if (expression[i] != ' ')
         {
