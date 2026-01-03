@@ -115,7 +115,6 @@ string infixToPrefix(string &expression)
 {
     expression = reverseMathExpression(expression);
     string prefix = infixToPostfixWithoutAssociativity(expression);
-    cout << prefix << endl;
     prefix = reverseMathExpression(prefix);
     return prefix;
 }
