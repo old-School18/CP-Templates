@@ -58,7 +58,8 @@ ld applyOperation(ld x, ld y, char op)
 
     return 0.0;
 }
-ld evaluateLogic(stack<ld> &operands, stack<char> &operators)
+
+ld evaluateSubExpression(stack<ld> &operands, stack<char> &operators)
 {
     ld value2 = operands.top();
     operands.pop();
@@ -91,7 +92,7 @@ ld evaluateInfix(string expression)
         {
             while (!operators.empty() && operators.top() != '(')
             {
-                ld value = evaluateLogic(operands, operators);
+                ld value = evaluateSubExpression(operands, operators);
                 operands.push(value);
             }
             operators.pop();
@@ -103,7 +104,7 @@ ld evaluateInfix(string expression)
                     (getPrecedence(operators.top()) == getPrecedence(expression[i]) &&
                      !isRightAssociative(expression[i]))))
             {
-                ld value = evaluateLogic(operands, operators);
+                ld value = evaluateSubExpression(operands, operators);
                 operands.push(value);
             }
 
@@ -113,7 +114,7 @@ ld evaluateInfix(string expression)
 
     while (!operators.empty())
     {
-        ld value = evaluateLogic(operands, operators);
+        ld value = evaluateSubExpression(operands, operators);
         operands.push(value);
     }
 
