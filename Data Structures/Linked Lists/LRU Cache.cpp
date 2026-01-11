@@ -19,42 +19,40 @@ class DoubleNode
     }
 };
 
-class LRUCache
+class DllList
 {
   public:
-    ll capacity;
-    unordered_map<ll, DoubleNode *> cache;
     DoubleNode *head, *tail;
-    LRUCache(ll capacity)
+
+    DllList()
     {
-        this->capacity = capacity;
         this->head = nullptr;
         this->tail = nullptr;
     }
 
-    void addNode(DoubleNode *&node, DoubleNode *&head, DoubleNode *&tail)
+    void addNode(DoubleNode *&node)
     {
-        if (head == nullptr)
+        if (this->head == nullptr)
         {
-            head = tail = node;
+            this->head = this->tail = node;
         }
         else
         {
-            tail->next = node;
-            node->prev = tail;
-            tail = tail->next;
+            this->tail->next = node;
+            node->prev = this->tail;
+            this->tail = this->tail->next;
         }
     }
 
-    void detachNode(DoubleNode *&node, DoubleNode *&head, DoubleNode *&tail)
+    void detachNode(DoubleNode *&node)
     {
-        if (head == node)
+        if (this->head == node)
         {
-            head = head->next;
+            this->head = this->head->next;
         }
-        if (tail == node)
+        if (this->tail == node)
         {
-            tail = tail->prev;
+            this->tail = this->tail->prev;
         }
         if (node->prev != nullptr)
         {
@@ -68,25 +66,38 @@ class LRUCache
         node->prev = node->next = nullptr;
     }
 
-    void popHead(DoubleNode *&head, DoubleNode *&tail)
+    void popHead()
     {
-        DoubleNode *currHead = head;
-        head = head->next;
+        DoubleNode *currHead = this->head;
+        this->head = this->head->next;
 
-        if (head != nullptr)
-            head->prev = nullptr;
+        if (this->head != nullptr)
+            this->head->prev = nullptr;
 
-        if (tail == currHead)
-            tail = nullptr;
+        if (this->tail == currHead)
+            this->tail = nullptr;
         delete currHead;
+    }
+};
+
+class LRUCache
+{
+  public:
+    ll capacity;
+    unordered_map<ll, DoubleNode *> cache;
+    DllList *dllList;
+    LRUCache(ll capacity)
+    {
+        this->capacity = capacity;
+        this->dllList = new DllList();
     }
 
     ll get(ll key)
     {
         if (cache.find(key) == cache.end())
             return -1;
-        detachNode(cache[key], head, tail);
-        addNode(cache[key], head, tail);
+        dllList->detachNode(cache[key]);
+        dllList->addNode(cache[key]);
         return cache[key]->data;
     }
 
@@ -98,16 +109,16 @@ class LRUCache
         {
             if (cache.size() == capacity)
             {
-                cache.erase(head->key);
-                popHead(head, tail);
+                cache.erase(dllList->head->key);
+                dllList->popHead();
             }
             cache[key] = new DoubleNode(key, value);
         }
         else
         {
             cache[key]->data = value;
-            detachNode(cache[key], head, tail);
+            dllList->detachNode(cache[key]);
         }
-        addNode(cache[key], head, tail);
+        dllList->addNode(cache[key]);
     }
 };
