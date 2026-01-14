@@ -1,6 +1,6 @@
 // Time Complexity => O(n)
-// Memory Complexity => O(256)
-// Number of subarrays of a binary array whose sum is k
+// Memory Complexity => O(1)
+// Number of subarrays with k odd numbers
 
 // Slow-fast pointer Instant
 ll kOddsSubarray(ll a[], ll n, ll k)
