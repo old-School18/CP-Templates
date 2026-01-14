@@ -23,5 +23,26 @@ ll longestRepeatReplace(string s, ll k)
 }
 
 -----------------------
+// Slow-fast pointer Instant
+ll longestRepeatReplace(string s, ll k)
+{
+    ll n = s.size();
+    ll tracker[256] = {0};
+    ll ans = 0, maxFreq = 0;
+    for (ll slow = 0, fast = 0; fast < n; fast++)
+    {
+        tracker[s[fast]]++;
+        maxFreq = max(maxFreq, tracker[s[fast]]);
+
+        if (fast - slow + 1 - maxFreq > k)
+        {
+            tracker[s[slow++]]--;
+        }
+        ans = max(ans, fast - slow + 1);
+    }
+    return ans;
+}
+
+-----------------------
 Reference:
 https://leetcode.com/problems/longest-repeating-character-replacement/
