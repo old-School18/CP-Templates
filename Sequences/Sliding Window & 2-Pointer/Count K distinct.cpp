@@ -1,5 +1,5 @@
 // Time Complexity => O(n)
-// Memory Complexity => O(n)
+// Memory Complexity => O(M) where M - max element in the array
 // Number of subarrays of a binary array whose sum is k
 
 // Slow-fast pointer Instant
