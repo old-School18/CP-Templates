@@ -2,7 +2,7 @@
 // Memory Complexity => O(1)
 // Maximum consecutive ones in a binary array after flipping at most k 0's
 
-// Slow-fast pointer Longest
+// Slow-fast pointer Lazy
 ll maxConsecutiveOnes(ll a[], ll n, ll k)
 {
     ll ans = 0, ck = 0;
