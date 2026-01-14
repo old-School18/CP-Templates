@@ -2,7 +2,7 @@
 // Memory Complexity => O(256)
 // Longest subarray with repeating character after replacing at most k characters
 
-// Slow-fast pointer Longest
+// Slow-fast pointer Lazy
 ll longestRepeatReplace(string s, ll k)
 {
     ll n = s.size();
