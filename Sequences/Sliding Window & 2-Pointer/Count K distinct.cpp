@@ -1,6 +1,6 @@
 // Time Complexity => O(n)
 // Memory Complexity => O(M) where M - max element in the array
-// Number of subarrays of a binary array whose sum is k
+// Count of subarrays with K distinct elements
 
 // Slow-fast pointer Instant
 ll countKDistinct(ll a[], ll n, ll k)
