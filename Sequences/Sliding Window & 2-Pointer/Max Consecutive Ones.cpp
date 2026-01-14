@@ -21,3 +21,8 @@ ll maxConsecutiveOnes(ll a[], ll n, ll k)
     }
     return ans;
 }
+
+
+-------------------------
+Reference:
+https://leetcode.com/problems/max-consecutive-ones-iii/
