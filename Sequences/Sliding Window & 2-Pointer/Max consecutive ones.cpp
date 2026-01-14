@@ -22,6 +22,26 @@ ll maxConsecutiveOnes(ll a[], ll n, ll k)
     return ans;
 }
 
+---------------------------
+// Slow-fast pointer Instant
+ll maxConsecutiveOnes(ll a[], ll n, ll k)
+{
+    ll ans = 0, ck = 0;
+    for (ll slow = 0, fast = 0; fast < n; fast++)
+    {
+        if (!a[fast])
+            ck++;
+
+        while (ck > k)
+        {
+            if (!a[slow++])
+                ck--;
+        }
+
+        ans = max(ans, fast - slow + 1);
+    }
+    return ans;
+}
 
 -------------------------
 Reference:
