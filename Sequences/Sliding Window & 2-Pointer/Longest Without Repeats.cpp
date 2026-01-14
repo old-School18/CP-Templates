@@ -2,7 +2,7 @@
 // Memory Complexity => O(256)
 // Longest subarray without repeating characters
 
-// Slow-fast pointer Longest
+// Slow-fast pointer Lazy
 ll longestWithoutRepeats(string s)
 {
     ll n = s.size();
