@@ -38,13 +38,10 @@ class MaxHeap
         ll idx = size++;
         heap.push_back(x);
 
-        while (idx && heap[idx] > heap[parent(idx)])
-        {
-            swap(heap[idx], heap[parent(idx)]);
-            idx = (idx - 1) / 2;
-        }
+        siftUp(idx);
     }
 
+    // sift-down
     void heapify(ll idx)
     {
         ll largest = idx;
@@ -61,6 +58,16 @@ class MaxHeap
             swap(heap[idx], heap[largest]);
             heapify(largest);
         }
+    }
+
+    void siftUp(ll idx)
+    {
+        if (idx && heap[idx] > heap[parent(idx)])
+        {
+            swap(heap[idx], heap[parent(idx)]);
+            siftUp(parent(idx));
+        }
+        return;
     }
 
     ll minElement()
@@ -95,12 +102,7 @@ class MaxHeap
         if (heap[idx] < newValue)
         {
             heap[idx] = newValue;
-
-            while (idx && heap[idx] > heap[parent(idx)])
-            {
-                swap(heap[idx], heap[parent(idx)]);
-                idx = (idx - 1) / 2;
-            }
+            siftUp(idx);
         }
         else if (heap[idx] > newValue)
         {
