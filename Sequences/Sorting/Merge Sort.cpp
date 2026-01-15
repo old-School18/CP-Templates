@@ -37,18 +37,18 @@ void merge(ll a[], ll l, ll r)
     return;
 }
 
-void mergeSortRecursion(ll a[], ll l, ll r)
+void mergeSortRecurse(ll a[], ll l, ll r)
 {
     ll mid = l + (r - l) / 2;
     if (l < r)
     {
-        mergeSortRecursion(a, l, mid);
-        mergeSortRecursion(a, mid + 1, r);
+        mergeSortRecurse(a, l, mid);
+        mergeSortRecurse(a, mid + 1, r);
         merge(a, l, r);
     }
 }
 
 void mergeSort(ll a[], ll n)
 {
-    mergeSortRecursion(a, 0, n - 1);
+    mergeSortRecurse(a, 0, n - 1);
 }
