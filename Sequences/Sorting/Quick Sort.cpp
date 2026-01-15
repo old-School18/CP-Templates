@@ -18,17 +18,17 @@ ll findPivot(ll a[], ll l, ll r)
     return pivot;
 }
 
-void quickSortRecursion(ll a[], ll l, ll r)
+void quickSortRecurse(ll a[], ll l, ll r)
 {
     if (l < r)
     {
         ll pivot = findPivot(a, l, r);
-        quickSortRecursion(a, l, pivot - 1);
-        quickSortRecursion(a, pivot + 1, r);
+        quickSortRecurse(a, l, pivot - 1);
+        quickSortRecurse(a, pivot + 1, r);
     }
 }
 
 void quickSort(ll a[], ll n)
 {
-    quickSortRecursion(a, 0, n - 1);
+    quickSortRecurse(a, 0, n - 1);
 }
