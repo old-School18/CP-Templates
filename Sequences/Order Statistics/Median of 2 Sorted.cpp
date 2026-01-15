@@ -1,6 +1,6 @@
 // Time Complexity: O(log min(n,m))
 // Memory Complexity: Recursive: O(log min(n,m)) | Iterative: O(1)
-// Identify the kth smallest element of two sorted arrays
+// Median of two sorted arrays
 
 
 // Recursive
@@ -16,7 +16,7 @@ ld medianOfTwoRecurse(ll a[], ll b[], ll n, ll m, ll k, ll left, ll right)
 
     ll maxLeftA = (!partitionA) ? LLONG_MIN : a[partitionA - 1];
     ll minRightA = (partitionA == n) ? LLONG_MAX : a[partitionA];
-    ll maxLeftB = (!partitionB) ? LLONG_MIN : a[partitionB - 1];
+    ll maxLeftB = (!partitionB) ? LLONG_MIN : b[partitionB - 1];
     ll minRightB = (partitionB == m) ? LLONG_MAX : b[partitionB];
 
     if (maxLeftA <= minRightB && maxLeftB <= minRightA)
