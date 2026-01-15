@@ -38,13 +38,10 @@ class MinHeap
         ll idx = size++;
         heap.push_back(x);
 
-        while (idx && heap[idx] < heap[parent(idx)])
-        {
-            swap(heap[idx], heap[parent(idx)]);
-            idx = (idx - 1) / 2;
-        }
+        siftUp(idx);
     }
 
+    // sift-down
     void heapify(ll idx)
     {
         ll smallest = idx;
@@ -61,6 +58,16 @@ class MinHeap
             swap(heap[idx], heap[smallest]);
             heapify(smallest);
         }
+    }
+
+    void siftUp(ll idx)
+    {
+        if (idx && heap[idx] < heap[parent(idx)])
+        {
+            swap(heap[idx], heap[parent(idx)]);
+            siftUp(parent(idx));
+        }
+        return;
     }
 
     ll minElement()
@@ -100,12 +107,7 @@ class MinHeap
         else if (heap[idx] > newValue)
         {
             heap[idx] = newValue;
-
-            while (idx && heap[idx] < heap[parent(idx)])
-            {
-                swap(heap[idx], heap[parent(idx)]);
-                idx = (idx - 1) / 2;
-            }
+            siftUp(idx);
         }
         return;
     }
