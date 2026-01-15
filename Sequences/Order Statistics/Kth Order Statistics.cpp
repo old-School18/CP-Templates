@@ -16,7 +16,7 @@ ll kthOrderStatisticRecurse(ll a[], ll b[], ll n, ll m, ll k, ll left, ll right)
 
     ll maxLeftA = (!partitionA) ? LLONG_MIN : a[partitionA - 1];
     ll minRightA = (partitionA == n) ? LLONG_MAX : a[partitionA];
-    ll maxLeftB = (!partitionB) ? LLONG_MIN : a[partitionB - 1];
+    ll maxLeftB = (!partitionB) ? LLONG_MIN : b[partitionB - 1];
     ll minRightB = (partitionB == m) ? LLONG_MAX : b[partitionB];
 
     if (maxLeftA <= minRightB && maxLeftB <= minRightA)
