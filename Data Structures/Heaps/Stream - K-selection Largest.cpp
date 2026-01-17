@@ -24,18 +24,15 @@ class TopKLargest
 
     vector<ll> topK()
     {
-        vector<ll> topK;
-        while (!pq.empty())
+        vector<ll> res;
+        auto copy = pq;
+
+        while (!copy.empty())
         {
-            topK.push_back(pq.top());
-            pq.pop();
+            res.push_back(copy.top());
+            copy.pop();
         }
 
-        for (auto &p : topK)
-        {
-            pq.push(p);
-        }
-
-        return topK;
+        return res;
     }
 };
