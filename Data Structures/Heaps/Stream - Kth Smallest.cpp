@@ -16,7 +16,7 @@ class KthSmallest
     void add(ll val)
     {
         pq.push(val);
-        if (pq.size() > k)
+        if ((ll) pq.size() > k)
         {
             pq.pop();
         }
