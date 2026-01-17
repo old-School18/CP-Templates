@@ -1,9 +1,11 @@
-// Time Complexity => O(n2) Worse case | O(n) Averase case | O(n) Best case 
+// Time Complexity => O(n2) Worse case | O(n) Average case | O(n) Best case
 // Memory Complexity => O(n)
 // kth smallest element in a sequence
 
 ll findPivot(ll a[], ll l, ll r)
 {
+    ll idx = l + rand() % (r - l + 1);
+    swap(a[idx], a[r]);
     ll pivot = l;
 
     for (ll i = l; i < r; i++)
