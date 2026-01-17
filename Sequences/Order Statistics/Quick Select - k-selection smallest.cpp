@@ -3,7 +3,7 @@
 //    	Recursive: O(log n) Average case | O(n) Worst Case
 //      Iterative: O(1)
 //      nth_Element: O(1)
-// Top-k smallest elements (un-ordered). Can be applied for top-k largest elements problems also
+// Top-k smallest elements (un-ordered)
 
 
 // Quick Select Algorithm - Recursive
