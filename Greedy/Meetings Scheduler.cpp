@@ -12,7 +12,7 @@ class Comparator
     }
 };
 
-vector<ll> meetingScheduler(vector<ll> &start, vector<ll> &end)
+vector<ll> activitySelection(vector<ll> &start, vector<ll> &end)
 {
     ll n = start.size();
     vector<ll> scheduledOrder;
