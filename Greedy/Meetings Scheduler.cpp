@@ -2,7 +2,8 @@
 // Space Complexity: O(n)
 // Schedule maximum meetings possible when only one meeting is possibe at a time
 
-class SortMeetings
+// Activity Selection approach
+class Comparator
 {
   public:
     bool operator()(const pair<pair<ll, ll>, ll> &x, const pair<pair<ll, ll>, ll> &y)
@@ -22,7 +23,7 @@ vector<ll> meetingScheduler(vector<ll> &start, vector<ll> &end)
         scheduler.push_back({{start[i], end[i]}, i});
     }
 
-    sort(scheduler.begin(), scheduler.end(), SortMeetings());
+    sort(scheduler.begin(), scheduler.end(), Comparator());
 
     for (auto &p : scheduler)
     {
