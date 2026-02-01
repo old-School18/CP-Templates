@@ -2,7 +2,7 @@
 // Space Complexity: O(n)
 // Schedule maximum meetings possible when only one meeting is possible at a time
 
-// Activity Selection approach – Maximum non-overlapping identification
+// Activity Selection approach – Maximum non-overlapping identification (Greedy by start time)
 class Comparator
 {
   public:
