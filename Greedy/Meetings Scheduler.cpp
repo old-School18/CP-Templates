@@ -38,4 +38,4 @@ vector<ll> meetingScheduler(vector<ll> &start, vector<ll> &end)
 
 ---------------------------------
 Reference:
-https://takeuforward.org/data-structure/minimum-number-of-platforms-required-for-a-railway
+https://takeuforward.org/data-structure/n-meetings-in-one-room
