@@ -35,3 +35,7 @@ vector<ll> meetingScheduler(vector<ll> &start, vector<ll> &end)
 
     return scheduledOrder;
 }
+
+---------------------------------
+Reference:
+https://takeuforward.org/data-structure/minimum-number-of-platforms-required-for-a-railway
