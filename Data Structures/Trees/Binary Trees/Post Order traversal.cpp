@@ -1,6 +1,6 @@
 // Time Complexity: O(n)
 // Memory Complexity: O(h) where h = height of the tree
-// Pre order traversal of a binary tree
+// Post order traversal of a binary tree
 
 // Recursive
 void postOrderRecurse(BT *root, vector<ll> &postOrderNodes)
