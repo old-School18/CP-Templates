@@ -3,21 +3,29 @@
 // Pre order traversal of a binary tree
 
 // Recursive
-void preOrderRecursive(BT *root)
+void preOrderRecurse(BT *root, vector<ll> &preOrderNodes)
 {
     if (root)
     {
-        cout << root->data << endl;
-        preOrderRecursive(root->left);
-        preOrderRecursive(root->right);
+        preOrderNodes.push_back(root->data);
+        preOrderRecurse(root->left);
+        preOrderRecurse(root->right);
     }
     return;
 }
 
+vector<ll> preOrder(BT *root)
+{
+    vector<ll> preOrderNodes;
+    preOrderRecurse(root, preOrderNodes);
+    return preOrderNodes;
+}
+
 ---------------------
 // Iterative
-void preOrder(BT *root)
+vector<ll> preOrder(BT *root)
 {
+    vector<ll> preOrderNodes;
     stack<BT *> stk;
 
     if (root)
@@ -30,7 +38,7 @@ void preOrder(BT *root)
         auto p = stk.top();
         stk.pop();
 
-        cout << p->data << endl;
+        preOrderNodes.push_back(p->data);
 
         if (p->right)
         {
@@ -41,6 +49,6 @@ void preOrder(BT *root)
             stk.push(p->left);
         }
     }
-
-    return;
+    
+    return preOrderNodes;
 }
