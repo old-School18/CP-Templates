@@ -3,29 +3,29 @@
 // In order traversal of a binary tree
 
 // Recursive
-void inorderRecurse(BT *root, vector<ll> &inOrderNodes)
+void inOrderRecurse(BT *root, vector<ll> &inOrderNodes)
 {
     if (root)
     {
-        inorderRecurse(root->left);
-        inOrderNodes.push_back(root->data);
-        inorderRecurse(root->right);
+        inOrderRecurse(root->left);
+        inOrderRecurse.push_back(root->data);
+        inOrderRecurse(root->right);
     }
     return;
 }
 
-vector<ll> inorder(BT *root)
+vector<ll> inOrder(BT *root)
 {
     vector<ll> inOrderNodes;
-    inorderRecurse(root, inOrderNodes);
+    inOrderRecurse(root, inOrderNodes);
     return inOrderNodes;
 }
 
 ---------------------
 // Iterative
-vector<ll> inorder(BT *root)
+vector<ll> inOrder(BT *root)
 {
-    vector<ll> inorderNodes;
+    vector<ll> inOrderNodes;
     stack<BT *> stk;
     BT *curr = root;
 
@@ -39,9 +39,9 @@ vector<ll> inorder(BT *root)
 
         curr = stk.top();
         stk.pop();
-        inorderNodes.push_back(curr->data);
+        inOrderNodes.push_back(curr->data);
         curr = curr->right;
     }
 
-    return inorderNodes;
+    return inOrderNodes;
 }
