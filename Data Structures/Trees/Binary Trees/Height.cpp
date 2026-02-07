@@ -1,5 +1,5 @@
 // Time Complexity: O(n)
-// Memory Complexity: O(h)
+// Memory Complexity: O(h) where h = height of the tree
 // Height of a binary tree
 
 // Recursive
