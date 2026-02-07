@@ -1,5 +1,5 @@
 // Time Complexity: O(n)
-// Memory Complexity: O(h)
+// Memory Complexity: O(h) where h = height of the tree
 // Pre Order, In Order, Post Order traversals in one traversal
 
 vector<vector<ll>> preInPostTraversal(BT *root)
