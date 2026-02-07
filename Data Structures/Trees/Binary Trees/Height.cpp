@@ -1,8 +1,8 @@
 // Time Complexity: O(n)
-// Memory Complexity: O(h) where h = height of the tree
+// Memory Complexity: O(h) DFS | O(w) BFS where h = tree height, w = tree width
 // Height of a binary tree
 
-// Recursive
+// Recursive - DFS
 ll heightBTRecursive(BT *root)
 {
     if (!root)
@@ -14,7 +14,74 @@ ll heightBTRecursive(BT *root)
 }
 
 ------------------------
-// Iterative
+// Iterative - BFS
+ll heightBT(BT *root)
+{
+    ll levels = 0;
+    queue<BT *> qe;
+
+    if (root)
+    {
+        qe.push(root);
+    }
+
+    while (!qe.empty())
+    {
+        ll currentLevelSize = qe.size();
+        while (currentLevelSize--)
+        {
+            auto p = qe.front();
+            qe.pop();
+            if (p->left)
+                qe.push(p->left);
+            if (p->right)
+                qe.push(p->right);
+        }
+
+        levels++;
+    }
+    return levels;
+}
+
+------------------------
+// Iterative - BFS aliter
+ll heightBT(BT *root)
+{
+    ll levels = 0;
+    queue<BT *> qe;
+
+    if (root)
+    {
+        qe.push(root);
+        qe.push(NULL);
+    }
+
+    while (!qe.empty())
+    {
+        auto p = qe.front();
+        qe.pop();
+        if (p)
+        {
+            if (p->left)
+                qe.push(p->left);
+            if (p->right)
+                qe.push(p->right);
+        }
+        else
+        {
+            if (!qe.empty())
+            {
+                qe.push(NULL);
+            }
+            levels++;
+        }
+    }
+    return levels;
+}
+
+
+------------------------
+// Iterative - DFS
 ll heightBT(BT *root)
 {
     ll height = 0;
