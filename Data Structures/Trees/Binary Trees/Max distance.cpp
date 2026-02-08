@@ -155,3 +155,7 @@ ll maxDistanceFromNode(BT *root, BT *target)
     }
     return level - 1;
 }
+
+------------------
+Reference:
+https://takeuforward.org/data-structure/minimum-time-taken-to-burn-the-binary-tree-from-a-node
