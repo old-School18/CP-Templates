@@ -96,7 +96,7 @@ vector<ll> kDistance(BT *root, BT *target, ll k)
 
     while (!qe.empty())
     {
-        ll currLeveLSize = qe.size();
+        ll currLevelSize = qe.size();
         if (level++ == k)
         {
             vector<ll> res;
@@ -108,7 +108,7 @@ vector<ll> kDistance(BT *root, BT *target, ll k)
             return res;
         }
 
-        while (currLeveLSize--)
+        while (currLevelSize--)
         {
             auto p = qe.front();
             qe.pop();
