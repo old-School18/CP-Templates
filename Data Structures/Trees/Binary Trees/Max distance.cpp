@@ -3,6 +3,52 @@
 // Max distance from a given node in a tree
 
 // DFS
+ll traverseSubTree(BT *root)
+{
+    if (root == nullptr)
+    {
+        return 0;
+    }
+    return 1ll + max(traverseSubTree(root->left), traverseSubTree(root->right));
+}
+
+ll dfs(BT *root, BT *target, ll &maxDistance)
+{
+    if (root == nullptr)
+    {
+        return -1;
+    }
+    if (root == target)
+    {
+        maxDistance = max(maxDistance, traverseSubTree(root));
+        return 0;
+    }
+    
+    ll left = dfs(root->left, target, maxDistance);
+    if (left != -1)
+    {
+        maxDistance = max(maxDistance, left + traverseSubTree(root->right));
+        return left + 1;
+    }
+
+    ll right = dfs(root->right, target, maxDistance);
+    if (right != -1)
+    {
+        maxDistance = max(maxDistance, right + traverseSubTree(root->left));
+        return right + 1;
+    }
+    return -1;
+}
+
+ll maxDistanceFromNode(BT *root, BT *target)
+{
+    ll maxDistance = 0;
+    dfs(root, target, maxDistance);
+    return maxDistance;
+}
+
+---------------
+// DFS - single dfs function. Same time complexity as the above dfs approach as each node is traversed only once in both.
 ll dfs(BT *root, BT *target, ll &maxDistance, ll &height)
 {
     if (root == nullptr)
@@ -46,7 +92,6 @@ ll maxDistanceFromNode(BT *root, BT *target)
     dfs(root, target, maxDistance, height);
     return maxDistance;
 }
-
 
 -------------------
 // BFS - with back-edges
@@ -110,7 +155,3 @@ ll maxDistanceFromNode(BT *root, BT *target)
     }
     return level - 1;
 }
-
-------------------------
-Referece:
-https://takeuforward.org/data-structure/minimum-time-taken-to-burn-the-binary-tree-from-a-node
