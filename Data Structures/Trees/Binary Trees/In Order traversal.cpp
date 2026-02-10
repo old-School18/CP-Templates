@@ -1,5 +1,5 @@
 // Time Complexity: O(n)
-// Memory Complexity: O(h) where h = height of the tree
+// Memory Complexity: O(1) Morris | O(h) otherwise where h = height of the tree
 // In order traversal of a binary tree
 
 // Recursive
@@ -44,4 +44,43 @@ vector<ll> inOrder(BT *root)
     }
 
     return inOrderNodes;
+}
+
+
+-------------------------
+Morris In order traversal
+
+vector<ll> inorder(BT *root)
+{
+    vector<ll> inorder;
+
+    while (root != nullptr)
+    {
+        if (root->left == nullptr)
+        {
+            inorder.push_back(root->val);
+            root = root->right;
+        }
+        else
+        {
+            BT *prev = root->left;
+            while (prev->right && prev->right != root)
+            {
+                prev = prev->right;
+            }
+
+            if (prev->right == nullptr)
+            {
+                prev->right = root;
+                root = root->left;
+            }
+            else
+            {
+                prev->right = nullptr;
+                inorder.push_back(root->val);
+                root = root->right;
+            }
+        }
+    }
+    return inorder;
 }
