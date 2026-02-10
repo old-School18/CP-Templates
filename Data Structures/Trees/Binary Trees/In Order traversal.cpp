@@ -50,7 +50,7 @@ vector<ll> inOrder(BT *root)
 -------------------------
 Morris In order traversal
 
-vector<ll> inorder(BT *root)
+vector<ll> inOrder(BT *root)
 {
     vector<ll> inorder;
 
