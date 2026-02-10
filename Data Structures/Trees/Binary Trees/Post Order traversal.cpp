@@ -1,5 +1,5 @@
 // Time Complexity: O(n)
-// Memory Complexity: O(h) where h = height of the tree
+// Memory Complexity: O(1) Morris | O(h) otherwise where h = height of the tree
 // Post order traversal of a binary tree
 
 // Recursive
@@ -52,6 +52,44 @@ vector<ll> postOrder(BT *root)
     }
     
     
+    reverse(postOrderNodes.begin(), postOrderNodes.end());
+    return postOrderNodes;
+}
+
+-----------------------
+Morris Post order traversal
+
+vector<ll> postOrder(BT *root)
+{
+    vector<ll> postOrderNodes;
+    while (root != nullptr)
+    {
+        if (root->right == nullptr)
+        {
+            postOrderNodes.push_back(root->data);
+            root = root->left;
+        }
+        else
+        {
+            BT *prev = root->right;
+            while (prev->left && prev->left != root)
+            {
+                prev = prev->left;
+            }
+
+            if (prev->left == nullptr)
+            {
+                prev->left = root;
+                postOrderNodes.push_back(root->data);
+                root = root->right;
+            }
+            else
+            {
+                prev->left = nullptr;
+                root = root->left;
+            }
+        }
+    }
     reverse(postOrderNodes.begin(), postOrderNodes.end());
     return postOrderNodes;
 }
