@@ -1,6 +1,6 @@
 // Time Complexity: O(n)
 // Memory Complexity: O(1)
-// Convert binary tree to single linked list where right pointer points to next node in the linked list and left node is null
+// Convert binary tree to single linked list in pre order where the left node is null and right node points to the next node in the linked list
 
 
 // Morris traversal approach
