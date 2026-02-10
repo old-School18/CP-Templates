@@ -52,13 +52,13 @@ Morris In order traversal
 
 vector<ll> inOrder(BT *root)
 {
-    vector<ll> inorder;
+    vector<ll> inOrderNodes;
 
     while (root != nullptr)
     {
         if (root->left == nullptr)
         {
-            inorder.push_back(root->val);
+            inOrderNodes.push_back(root->data);
             root = root->right;
         }
         else
@@ -77,10 +77,10 @@ vector<ll> inOrder(BT *root)
             else
             {
                 prev->right = nullptr;
-                inorder.push_back(root->val);
+                inOrderNodes.push_back(root->data);
                 root = root->right;
             }
         }
     }
-    return inorder;
+    return inOrderNodes;
 }
