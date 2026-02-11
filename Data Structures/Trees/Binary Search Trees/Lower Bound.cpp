@@ -2,6 +2,7 @@
 // Memory Complexity: O(1) Iterative | O(h) Recursive where h = tree height
 // Lower bound
 
+// Recursive
 BST *lowerBoundRecursive(BST *root, ll target)
 {
     if (root == nullptr)
@@ -20,6 +21,8 @@ BST *lowerBoundRecursive(BST *root, ll target)
     }
 }
 
+-----------------
+// Iterative
 BST *lowerBound(BST *root, ll target)
 {
     BST *lb = nullptr;
