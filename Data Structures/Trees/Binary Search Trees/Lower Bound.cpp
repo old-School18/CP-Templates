@@ -29,7 +29,7 @@ BST *lowerBound(BST *root, ll target)
 
     while (root)
     {
-        if (root -> data >= target)
+        if (root->data >= target)
         {
             lb = root;
             root = root->left;
