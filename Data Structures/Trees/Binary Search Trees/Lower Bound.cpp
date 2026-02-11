@@ -1,4 +1,4 @@
-// Time Complexity: O(n)
+// Time Complexity: O(logn)
 // Memory Complexity: O(1) Iterative | O(h) Recursive where h = tree height
 // Lower bound
 
