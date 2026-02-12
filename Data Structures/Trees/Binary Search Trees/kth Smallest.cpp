@@ -1,5 +1,5 @@
 // Time Complexity: O(h) where h = tree height
-// Memory Complexity: O(1) Iterative | O(h) Recursive
+// Memory Complexity: O(h)
 // kth Smallest Node  (In order traversal)
 
 // Recursive
