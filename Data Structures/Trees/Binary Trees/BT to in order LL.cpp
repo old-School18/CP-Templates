@@ -76,14 +76,30 @@ BT *inOrderLL(BT *root)
         if (root->left != nullptr)
         {
             BT *prev = root->left;
-            while (prev->right)
+            while (prev->right && prev->right != root)
             {
                 prev = prev->right;
             }
-            prev->right = root;
-            BT *next = root->left;
-            root->left = nullptr;
-            root = next;
+            if (prev->right == nullptr)
+            {
+                prev->right = root;
+                root = root->left;
+            }
+            else
+            {
+                prev->right = nullptr;
+                if (head == nullptr)
+                {
+                    head = root;
+                }
+                else
+                {
+                    predecessor->right = root;
+                }
+                root->left = nullptr;
+                predecessor = root;
+                root = root->right;
+            }
         }
         else
         {
@@ -95,6 +111,7 @@ BT *inOrderLL(BT *root)
             {
                 predecessor->right = root;
             }
+            root->left = nullptr;
             predecessor = root;
             root = root->right;
         }
