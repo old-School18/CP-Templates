@@ -35,7 +35,86 @@ BT *inOrderDLL(BT *root)
 
 -----------------
 // Iterative
+BT *inOrderDLL(BT *root)
+{
+    BT *head = nullptr, *prev = nullptr;
+    stack<BT *> stk;
 
+    while (root || !stk.empty())
+    {
+        while (root)
+        {
+            stk.push(root);
+            root = root->left;
+        }
+
+        root = stk.top();
+        stk.pop();
+        if (!head)
+        {
+            head = root;
+        }
+        else
+        {
+            prev->right = root;
+        }
+        root->left = prev;
+        prev = root;
+        root = root->right;
+    }
+    return head;
+}
 
 ------------------
 // Iterative - Morris
+BT *inOrderDLL(BT *root)
+{
+    BT *head = nullptr, *predecessor = nullptr;
+
+    while (root)
+    {
+        if (root->left != nullptr)
+        {
+            BT *prev = root->left;
+            while (prev->right && prev->right != root)
+            {
+                prev = prev->right;
+            }
+
+            if (prev->right == nullptr)
+            {
+                prev->right = root;
+                root = root->left;
+            }
+            else
+            {
+                if (head == nullptr)
+                {
+                    head = root;
+                }
+                else
+                {
+                    predecessor->right = root;
+                }
+                root->left = predecessor;
+                predecessor = root;
+                root = root->right;
+            }
+        }
+        else
+        {
+            if (head == nullptr)
+            {
+                head = root;
+            }
+            else
+            {
+                predecessor->right = root;
+            }
+            root->left = predecessor;
+            predecessor = root;
+            root = root->right;
+        }
+    }
+    return head;
+}
