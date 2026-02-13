@@ -35,7 +35,69 @@ BT *inOrderLL(BT *root)
 
 -----------------
 // Iterative
+BT *inOrderLL(BT *root)
+{
+    BT *head = nullptr, *prev = nullptr;
+    stack<BT *> stk;
 
+    while (root || !stk.empty())
+    {
+        while (root)
+        {
+            stk.push(root);
+            root = root->left;
+        }
+
+        root = stk.top();
+        stk.pop();
+        if (!head)
+        {
+            head = root;
+        }
+        else
+        {
+            prev->right = root;
+        }
+        root->left = nullptr;
+        prev = root;
+        root = root->right;
+    }
+    return head;
+}
 
 ------------------
 // Iterative - Morris
+BT *inOrderLL(BT *root)
+{
+    BT *head = nullptr, *predecessor = nullptr;
+
+    while (root)
+    {
+        if (root->left != nullptr)
+        {
+            BT *prev = root->left;
+            while (prev->right)
+            {
+                prev = prev->right;
+            }
+            prev->right = root;
+            BT *next = root->left;
+            root->left = nullptr;
+            root = next;
+        }
+        else
+        {
+            if (head == nullptr)
+            {
+                head = root;
+            }
+            else
+            {
+                predecessor->right = root;
+            }
+            predecessor = root;
+            root = root->right;
+        }
+    }
+    return head;
+}
