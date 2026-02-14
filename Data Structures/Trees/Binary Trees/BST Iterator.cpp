@@ -40,6 +40,6 @@ class BSTIterator
         else
             pushAll(node->left);
 
-        return node->val;
+        return node->data;
     }
 };
