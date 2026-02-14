@@ -88,6 +88,7 @@ BT *inOrderDLL(BT *root)
             }
             else
             {
+	    prev->right = nullptr;
                 if (head == nullptr)
                 {
                     head = root;
