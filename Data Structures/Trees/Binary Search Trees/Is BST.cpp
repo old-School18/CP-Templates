@@ -3,20 +3,20 @@
 // Validate if a tree is BST
 
 // Range validation
-bool isValidBST(BT *root, ll low, ll high)
+bool isValidBST(BST *root, ll low, ll high)
 {
     if (!root)
     {
         return true;
     }
-    if (root->val <= low || root->val >= high)
+    if (root->data <= low || root->data >= high)
     {
         return false;
     }
-    return isValidBST(root->left, low, root->val) && isValidBST(root->right, root->val, high);
+    return isValidBST(root->left, low, root->data) && isValidBST(root->right, root->data, high);
 }
 
-bool isValidBST(BT *root)
+bool isValidBST(BST *root)
 {
     return isValidBST(root, LLONG_MIN, LLONG_MAX);
 }
@@ -24,7 +24,7 @@ bool isValidBST(BT *root)
 
 -----------------
 // Inorder - Morris used here for memory optimization, use any
-bool isValidBST(BT *root)
+bool isValidBST(BST *root)
 {
     bool isHead = true;
     ll inOrderPrev = 0;
@@ -33,17 +33,17 @@ bool isValidBST(BT *root)
     {
         if (root->left == nullptr)
         {
-            if (!isHead && inOrderPrev >= root->val)
+            if (!isHead && inOrderPrev >= root->data)
             {
                 isValid = false;
             }
             isHead = false;
-            inOrderPrev = root->val;
+            inOrderPrev = root->data;
             root = root->right;
         }
         else
         {
-            BT *prev = root->left;
+            BST *prev = root->left;
             while (prev->right && prev->right != root)
             {
                 prev = prev->right;
@@ -56,12 +56,12 @@ bool isValidBST(BT *root)
             else
             {
                 prev->right = nullptr;
-                if (!isHead && inOrderPrev >= root->val)
+                if (!isHead && inOrderPrev >= root->data)
                 {
                     isValid = false;
                 }
                 isHead = false;
-                inOrderPrev = root->val;
+                inOrderPrev = root->data;
                 root = root->right;
             }
         }
