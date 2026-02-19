@@ -30,7 +30,7 @@ bool dfs(vector<vector<ll>> &adj, ll n)
     return false;
 }
 
-bool cycleDetectionUndirected(vector<vector<ll>> &adj, ll n)
+bool cycleUndirected(vector<vector<ll>> &adj, ll n)
 {
     return dfs(adj, n);
 }
@@ -69,7 +69,7 @@ bool bfs(vector<vector<ll>> &adj, ll n)
     return false;
 }
 
-bool cycleDetectionUndirected(vector<vector<ll>> &adj, ll n)
+bool cycleUndirected(vector<vector<ll>> &adj, ll n)
 {
     return bfs(adj, n);
 }
