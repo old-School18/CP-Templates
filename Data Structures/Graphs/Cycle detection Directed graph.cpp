@@ -2,7 +2,6 @@
 // Memory Complexity: O(V)
 // Cycle detection in Directed graphs
 
-
 bool dfs(vector<vector<ll>> &adj, vector<bool> &vis, vector<bool> &ancestral_stk, ll u)
 {
     vis[u] = true;
