@@ -4,7 +4,7 @@
 
 vector<ll> getIndegree(vector<vector<ll>> &adj, ll n)
 {
-    vector<ll> indegree(n + 1);
+    vector<ll> indegree(n + 1, 0);
     for (ll u = 1; u <= n; u++)
     {
         for (auto &v : adj[u])
