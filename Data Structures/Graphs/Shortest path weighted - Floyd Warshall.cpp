@@ -34,5 +34,5 @@ bool floydWarshall(vector<vector<ll>> &adjMatrix, ll n)
         }
     }
 
-    return;
+    return true;
 }
