@@ -4,7 +4,7 @@
 
 
 // Dijkstra
-vector<ll> shortestPathWeighted(vector<vector<pair<ll, ll>>> &adj, ll n, ll src)
+vector<ll> dijkstra(vector<vector<pair<ll, ll>>> &adj, ll n, ll src)
 {
     vector<ll> dist(n + 1, LLONG_MAX);
     vector<ll> pred(n + 1, -1);
@@ -53,12 +53,13 @@ vector<ll> printShortestPathWeighted(vector<ll> &pred, ll src, ll dest)
 
 vector<ll> printShortestPathWeighted(vector<vector<pair<ll, ll>>> &adj, ll n, ll src, ll dest)
 {
-    vector<ll> pred = shortestPathWeighted(adj, n, src);
+    vector<ll> pred = dijkstra(adj, n, src);
     return printShortestPathWeighted(pred, src, dest);
 }
+
 -------------------------------
 
-// Topological Sort (only works for DAG in case of directed graphs)
+// Topological Sort – only works for DAG
 bool topoSortDfsUtil(vector<vector<pair<ll, ll>>> &adj, vector<ll> &state, vector<ll> &topoSortedNodes, ll u)
 {
     state[u] = 1; // visiting
@@ -97,7 +98,7 @@ vector<ll> topoSort(vector<vector<pair<ll, ll>>> &adj, ll n)
     return topoSortedNodes;
 }
 
-vector<ll> shortestPathWeighted(vector<vector<pair<ll, ll>>> &adj, ll n, ll src)
+vector<ll> topoSortShortestPath(vector<vector<pair<ll, ll>>> &adj, ll n, ll src)
 {
     vector<ll> dist(n + 1, LLONG_MAX);
     vector<ll> pred(n + 1, -1);
@@ -142,6 +143,6 @@ vector<ll> printShortestPathWeighted(vector<ll> &pred, ll src, ll dest)
 
 vector<ll> printShortestPathWeighted(vector<vector<pair<ll, ll>>> &adj, ll n, ll src, ll dest)
 {
-    vector<ll> pred = shortestPathWeighted(adj, n, src);
+    vector<ll> pred = topoSortShortestPath(adj, n, src);
     return printShortestPathWeighted(pred, src, dest);
 }
