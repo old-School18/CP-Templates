@@ -1,5 +1,5 @@
 // Time Complexity: O((V+E)log V)
-// Memory Complexity: O(V)
+// Memory Complexity: O(V+E)
 // Shortest path weighted graph. Doesn’t work with negative edges. Runs infinite loop for negative cycles
 
 
