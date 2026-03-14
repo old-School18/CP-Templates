@@ -8,7 +8,7 @@ ll mstPrims(vector<vector<pair<ll, ll>>> &adj, ll n)
     priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> pq;
     vector<bool> vis(n + 1, 0);
     pq.push({0, 1});
-    ll weightSum = 0;
+    ll mstWeight = 0;
 
     while (!pq.empty())
     {
@@ -17,7 +17,7 @@ ll mstPrims(vector<vector<pair<ll, ll>>> &adj, ll n)
         if (vis[u])
             continue;
         vis[u] = true;
-        weightSum += d;
+        mstWeight += d;
 
         for (auto &[v, dv] : adj[u])
         {
@@ -28,7 +28,7 @@ ll mstPrims(vector<vector<pair<ll, ll>>> &adj, ll n)
         }
     }
 
-    return weightSum;
+    return mstWeight;
 }
 
 // MST edges
