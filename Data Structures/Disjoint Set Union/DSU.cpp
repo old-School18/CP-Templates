@@ -12,17 +12,17 @@ class Dsu
         }
     }
 
-    ll findPar(ll x)
+    ll findParent(ll x)
     {
         if (parent[x] != x)
-            parent[x] = findPar(parent[x]);
+            parent[x] = findParent(parent[x]);
         return parent[x];
     }
 
     void unionByRank(ll x, ll y)
     {
-        ll xPar = findPar(x);
-        ll yPar = findPar(y);
+        ll xPar = findParent(x);
+        ll yPar = findParent(y);
         if (xPar == yPar)
             return;
         if (rank[xPar] < rank[yPar])
